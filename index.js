@@ -41,6 +41,7 @@ router.post('/', async (req, res) => {
         // Unpacking the message
         console.log(req.body)
         console.log(typeof req.body)
+        jsonData = req.body
         const messageType = jsonData.entry[0].changes[0].value.messages[0].type
         if (messageType === "button") {
             const number = jsonData.entry[0].changes[0].value.messages[0].context.from;
