@@ -40,6 +40,7 @@ router.post('/', async (req, res) => {
     try {
         // Unpacking the message
         console.log(req.body)
+        console.log(typeof req.body)
         res.send("EVENT_RECEIVED no error")
     } catch (e) {
         myConsole.log(e)
