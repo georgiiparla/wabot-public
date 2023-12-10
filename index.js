@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
         }
         res.send("EVENT_RECEIVED no error")
     } catch (e) {
-        myConsole.log(e)
+        console.log(e)
         res.send("EVENT_RECEIVED with error")
     }
 });
