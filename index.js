@@ -13,33 +13,11 @@ function wait(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
-async function missedCallReply(number) {
-    services.SendMessageWhatsApp(models.SampleText("Hi! Apologies for missing your call earlier 😳", number))
-    await wait(5000)
-    services.SendMessageWhatsApp(models.SampleText("We're eager to help you organise your party at Multimaxx", number))
-    await wait(5000)
-    services.SendMessageWhatsApp(models.SampleBookURLButton(number))
-    await wait(5000)
-    services.SendMessageWhatsApp(models.SampleText("...or by calling us back!", number))
-    await wait(5000)
-    services.SendMessageWhatsApp(models.SampleText("+35699007744", number))
-    await wait(5000)
-    services.SendMessageWhatsApp(models.SampleText("Our friendly operators will try to answer as soon as possible", number))
-    await wait(5000)
-    services.SendMessageWhatsApp(models.SampleText("Also, we highly recommend to take a look at party packages", number))
-    await wait(3000)
-    services.SendMessageWhatsApp(models.SendTeenOffer(number))
-    await wait(3000)
-    services.SendMessageWhatsApp(models.SendKidsOffer(number))
-    await wait(5000)
-    services.SendMessageWhatsApp(models.SampleText("We are looking forward to seeing you 🥰", number))
-}
-
 const app = express();
 app.use(express.json({ limit: '10mb' }));
 app.use(useragent.express());
 
+// check a token
 router.get('/', async (req, res) => {
     try {
         var accessToken = "btu0lSe8fbdrHiMOza978fXK";
@@ -69,17 +47,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.post('/event/:accountId/:mobile/:uuid', async (req, res) => {
-    try {
-        const { uuid, accountId, mobile } = req.params;
-        console.log('POST event', { accountId, mobile, uuid });
-        console.log('json:', req.body);
-    } catch (e) {
-        console.log('err', e);
-    }
-    res.json({ status: 'OK' });
-});
-
+// POST when missed a call
 router.post('/calldata/:accountId/:mobile/:uuid', async (req, res) => {
     try {
         const { accountId, mobile, uuid } = req.params;
@@ -92,15 +60,26 @@ router.post('/calldata/:accountId/:mobile/:uuid', async (req, res) => {
         if (calldata.answered === false) {
             if (calldata.number.length === 8) {
                 let number = "+356" + calldata.number
-                missedCallReply(number)
+                services.SendMessageWhatsApp(models.SampleMenuButtons(number))
             } else {
                 let number = calldata.number
-                missedCallReply(number)
+                services.SendMessageWhatsApp(models.SampleMenuButtons(number))
             }
         }
 
     } catch (e) {
         console.log(e);
+    }
+    res.json({ status: 'OK' });
+});
+
+router.post('/event/:accountId/:mobile/:uuid', async (req, res) => {
+    try {
+        const { uuid, accountId, mobile } = req.params;
+        console.log('POST event', { accountId, mobile, uuid });
+        console.log('json:', req.body);
+    } catch (e) {
+        console.log('err', e);
     }
     res.json({ status: 'OK' });
 });

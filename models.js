@@ -42,42 +42,6 @@ function SendKidsOffer(number) {
     return data
 }
 
-function SampleButtons(number) {
-    const data = JSON.stringify(
-        {
-            "messaging_product": "whatsapp",
-            "recipient_type": "individual",
-            "to": number,
-            "type": "interactive",
-            "interactive": {
-                "type": "button",
-                "body": {
-                    "text": "You can visit our website or book online by following the buttons below"
-                },
-                "action": {
-                    "buttons": [
-                        {
-                            "type": "reply",
-                            "reply": {
-                                "id": "btn1",
-                                "title": "Visit the website"
-                            }
-                        },
-                        {
-                            "type": "reply",
-                            "reply": {
-                                "id": "btn2",
-                                "title": "Book online"
-                            }
-                        }
-                    ]
-                }
-            }
-        }
-    )
-    return data
-}
-
 function SampleBookURLButton(number) {
     const data = JSON.stringify(
         {
@@ -111,10 +75,54 @@ function SampleBookURLButton(number) {
     )
     return data
 }
+
+function SampleMenuButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "Oops! 🙈 Totally missed your call earlier. Our bad! Sorry about that! While our operators are a bit busy, why not take a moment to explore Multimaxx? Just hit those nice buttons below to start! If there's anything specific you're looking for, call us back +35699007744"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_company_info",
+                                "title": "🌐 About Multimaxx"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_activities_info",
+                                "title": "🎉 Available activities"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_contacts_info",
+                                "title": "☎️ Contact details"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
 module.exports = {
     SampleText,
     SendTeenOffer,
     SendKidsOffer,
-    SampleButtons,
+    SampleMenuButtons,
     SampleBookURLButton
 }
