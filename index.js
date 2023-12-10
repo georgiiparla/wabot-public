@@ -43,17 +43,18 @@ router.post('/', async (req, res) => {
         console.log(typeof req.body)
         jsonData = req.body
         const messageType = jsonData.entry[0].changes[0].value.messages[0].type
-        if (messageType === "button") {
-            const number = jsonData.entry[0].changes[0].value.messages[0].context.from;
-            const text = jsonData.entry[0].changes[0].value.messages[0].button.text;
-            if (text === "🌐 About Us") {
-                services.SendMessageWhatsApp(models.SampleAboutButtons(number))
-            } else if (text === "📑 Back to Menu") {
-                services.SendMessageWhatsApp(models.SampleMenuButtons(number))
-            } else {
-                console.log("No button caught")
-            }
-        }
+        console.log(messageType)
+        // if (messageType === "button") {
+        //     const number = jsonData.entry[0].changes[0].value.messages[0].context.from;
+        //     const text = jsonData.entry[0].changes[0].value.messages[0].button.text;
+        //     if (text === "🌐 About Us") {
+        //         services.SendMessageWhatsApp(models.SampleAboutButtons(number))
+        //     } else if (text === "📑 Back to Menu") {
+        //         services.SendMessageWhatsApp(models.SampleMenuButtons(number))
+        //     } else {
+        //         console.log("No button caught")
+        //     }
+        // }
         res.send("EVENT_RECEIVED no error")
     } catch (e) {
         console.log(e)
