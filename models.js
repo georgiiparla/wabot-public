@@ -119,10 +119,46 @@ function SampleMenuButtons(number) {
     return data
 }
 
+function SampleAboutButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": `MULTIMAXX offers family entertainment venues where you always find unique activities!
+                    We are specialists in Laser tag - combining the classic games of hide-and-seek and tag with a high tech twist.
+                    LASERMAXX, CYBERMAXX, BATTLEMAXX any kind of laser tag for you to enjoy the most! 
+                    Our multi-level arenas has dazzling lighting, swirling fog and energetic music to add to the excitement for up to 16 adult or 20 children in each game.
+                    A part from Laser tag we offer plenty of other fun attractions such as VIRTUALMAXX - 360 degree virtual experience and our ARCADMAXX - to enjoy your favourite arcade experience!
+                    MULTIMAXX offers special packages for birthday parties, day camps, youth groups and sports teams. Schools and other youth organizations can also experience our tailormade packages for young and active students.
+                    MULTIMAXX also offers corporate team building events and private events.`
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_menu",
+                                "title": "📑 Back to Menu"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
 module.exports = {
     SampleText,
     SendTeenOffer,
     SendKidsOffer,
     SampleMenuButtons,
-    SampleBookURLButton
+    SampleBookURLButton,
+    SampleAboutButtons
 }
