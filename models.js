@@ -94,21 +94,21 @@ function SampleMenuButtons(number) {
                             "type": "reply",
                             "reply": {
                                 "id": "btn_company_info",
-                                "title": "🌐 About Multimaxx"
+                                "title": "🌐 About Us"
                             }
                         },
                         {
                             "type": "reply",
                             "reply": {
                                 "id": "btn_activities_info",
-                                "title": "🎉 Available activities"
+                                "title": "🎉 Activities"
                             }
                         },
                         {
                             "type": "reply",
                             "reply": {
                                 "id": "btn_contacts_info",
-                                "title": "☎️ Contact details"
+                                "title": "☎️ Contact Us"
                             }
                         }
                     ]
