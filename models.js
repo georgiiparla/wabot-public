@@ -55,18 +55,18 @@ function SampleBookURLButton(number) {
                 /* Header optional */
                 "header": {
                     "type": "text",
-                    "text": "You can book an activity online!"
+                    "text": "Just, follow the link below:"
                 },
 
                 /* Body optional */
                 "body": {
-                    "text": "Please, follow the link below:"
+                    "text": "🔍🌐 Obtain more details and, if you wish, secure your spot online!"
                 },
 
                 "action": {
                     "name": "cta_url",
                     "parameters": {
-                        "display_text": "Book online",
+                        "display_text": "More info",
                         "url": "https://www.starwarsmalta.com/book-online"
                     }
                 }
@@ -177,6 +177,322 @@ function SampleContactButtons(number) {
     return data
 }
 
+function SampleActivityButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🌟 Discover the range of activities we offer!"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_lasertag",
+                                "title": "🔫 Laser Tag"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_packages",
+                                "title": "🎁 Party packages"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_menu",
+                                "title": "📑 Back to Menu"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleLaserTagButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🤖 Choose the type!"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_indoor",
+                                "title": "🏢 Indoor"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_outdoor",
+                                "title": "🌳 Outdoor"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_back_activities",
+                                "title": "⬅️ Back"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleIndoorLTButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🌟 Discover the range of the indoor Laser Tag we offer!"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_lasermaxx",
+                                "title": "🚀 LASERMAXX"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_cybermaxx",
+                                "title": "🌐 CYBERMAXX"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_back_laser_locs",
+                                "title": "⬅️ Back"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleCyberMaxxButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🚀 Dive into the excitement at our large and modern Laser Tag arena on Level 2, Main Street Shopping Complex, Paola!\n\n🎮 Kid's party packages and private events are ready for booking. 🎉 Don't miss out on the ultimate fun! 🔫💫"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_price_book",
+                                "title": "🔍👀 More"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_back_laser_indoor",
+                                "title": "⬅️ Back"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleLaserMaxxButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🌟 Immerse yourself in the thrill of our indoor Laser Tag arena on Level 4, Bay Street Complex, St.Julian's, complete with dynamic lighting, swirling fog, and high-energy music to elevate the excitement 🚀🔦🎶\n\n🎉 Explore special packages tailored for birthday parties, corporate gatherings, and private events. Make your celebrations unforgettable with us! 🎂👔🎈"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_price_book",
+                                "title": "🔍👀 More"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_back_laser_indoor",
+                                "title": "⬅️ Back"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleOutdoorLTButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🌟 Discover the range of the outdoor Laser Tag we offer!\n\nMore about BMX only https://battlemaxx.com/"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_battlemaxx_kordin",
+                                "title": "⚔️ BMX Royal Prison"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_battlemaxx_ghaxaq",
+                                "title": "🏹 BMX Forest"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_back_laser_locs",
+                                "title": "⬅️ Back"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleBattleMaxxButtons1(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🎮 Embark on thrilling new game scenarios at the spectacular location of The Royal Navy Prison, constructed in 1866! 🏰⚔️\n\n🚪 Changing rooms, toilets, and a café are at your disposal for added convenience. Join the adventure and make unforgettable memories with us!"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_price_book",
+                                "title": "🔍👀 More"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_back_laser_outdoor",
+                                "title": "⬅️ Back"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleBattleMaxxButtons2(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🌳 Embark on exhilarating new game scenarios at the expansive green area nestled in the woods in the South of Malta! 🏞️🎮\n\nJoin the adventure surrounded by nature and create lasting memories in this picturesque setting! 🌲✨"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_price_book",
+                                "title": "🔍👀 More"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_back_laser_outdoor",
+                                "title": "⬅️ Back"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
 module.exports = {
     SampleText,
     SendTeenOffer,
@@ -184,5 +500,13 @@ module.exports = {
     SampleMenuButtons,
     SampleBookURLButton,
     SampleAboutButtons,
-    SampleContactButtons
+    SampleContactButtons,
+    SampleActivityButtons,
+    SampleLaserTagButtons,
+    SampleIndoorLTButtons,
+    SampleCyberMaxxButtons,
+    SampleLaserMaxxButtons,
+    SampleBattleMaxxButtons1,
+    SampleBattleMaxxButtons2,
+    SampleOutdoorLTButtons
 }

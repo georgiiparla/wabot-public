@@ -58,6 +58,50 @@ router.post('/', async (req, res) => {
                         case "btn_contacts_info":
                             services.SendMessageWhatsApp(models.SampleContactButtons(number))
                             break
+                        case "btn_activities_info":
+                            services.SendMessageWhatsApp(models.SampleActivityButtons(number))
+                            break
+                        case "btn_lasertag":
+                            services.SendMessageWhatsApp(models.SampleLaserTagButtons(number))
+                            break
+                        case "btn_back_activities":
+                            services.SendMessageWhatsApp(models.SampleActivityButtons(number))
+                            break
+                        case "btn_indoor":
+                            services.SendMessageWhatsApp(models.SampleIndoorLTButtons(number))
+                            break
+                        case "btn_back_laser_locs":
+                            services.SendMessageWhatsApp(models.SampleLaserTagButtons(number))
+                            break
+                        case "btn_cybermaxx":
+                            services.SendMessageWhatsApp(models.SampleCyberMaxxButtons(number))
+                            break
+                        case "btn_price_book":
+                            services.SendMessageWhatsApp(models.SampleBookURLButton(number))
+                            break
+                        case "btn_back_laser_indoor":
+                            services.SendMessageWhatsApp(models.SampleIndoorLTButtons(number))
+                            break
+                        case "btn_lasermaxx":
+                            services.SendMessageWhatsApp(models.SampleLaserMaxxButtons(number))
+                            break
+
+                        case "btn_outdoor":
+                            services.SendMessageWhatsApp(models.SampleOutdoorLTButtons(number))
+                            break
+                        case "btn_battlemaxx_kordin":
+                            services.SendMessageWhatsApp(models.SampleBattleMaxxButtons1(number))
+                            break
+                        case "btn_back_laser_outdoor":
+                            services.SendMessageWhatsApp(models.SampleOutdoorLTButtons(number))
+                            break
+                        case "btn_battlemaxx_ghaxaq":
+                            services.SendMessageWhatsApp(models.SampleBattleMaxxButtons2(number))
+                            break
+                        case "btn_packages":
+                            services.SendMessageWhatsApp(models.SendTeenOffer(number))
+                            services.SendMessageWhatsApp(models.SendKidsOffer(number))
+                            break
                         default:
                             console.log("No buttons reaction")
                             break
