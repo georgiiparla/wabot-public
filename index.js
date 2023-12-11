@@ -40,21 +40,36 @@ router.post('/', async (req, res) => {
     try {
         // Unpacking the message
         console.log(req.body)
-        console.log(typeof req.body)
         jsonData = req.body
-        const messageType = jsonData.entry[0].changes[0].value.messages[0].type
-        console.log(messageType)
-        // if (messageType === "button") {
-        //     const number = jsonData.entry[0].changes[0].value.messages[0].context.from;
-        //     const text = jsonData.entry[0].changes[0].value.messages[0].button.text;
-        //     if (text === "🌐 About Us") {
-        //         services.SendMessageWhatsApp(models.SampleAboutButtons(number))
-        //     } else if (text === "📑 Back to Menu") {
-        //         services.SendMessageWhatsApp(models.SampleMenuButtons(number))
-        //     } else {
-        //         console.log("No button caught")
-        //     }
-        // }
+        if (jsonData.entry[0].changes[0].value.messages) {
+            const type = jsonData.entry[0].changes[0].value.messages[0].type;
+            const number = jsonData.entry[0].changes[0].value.messages[0].from;
+            if (type === "interactive") {
+                const interactive_type = jsonData.entry[0].changes[0].value.messages[0].interactive.type;
+                if (interactive_type === "button_reply") {
+                    const buttonId = jsonData.entry[0].changes[0].value.messages[0].interactive.button_reply.id;
+                    switch (buttonId) {
+                        case "btn_company_info":
+                            services.SendMessageWhatsApp(models.SampleAboutButtons(number))
+                            break
+                        case "btn_menu":
+                            services.SendMessageWhatsApp(models.SampleMenuButtons(number))
+                            break
+                        case "btn_contacts_info":
+                            services.SendMessageWhatsApp(models.SampleContactButtons(number))
+                            break
+                        default:
+                            console.log("No buttons reaction")
+                            break
+                    }
+                }
+            } else if (type === "text") {
+                const text = jsonData.entry[0].changes[0].value.messages[0].text.body;
+                if (text === "!menu") {
+                    services.SendMessageWhatsApp(models.SampleMenuButtons(number))
+                }
+            }
+        }
         res.send("EVENT_RECEIVED no error")
     } catch (e) {
         console.log(e)

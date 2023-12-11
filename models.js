@@ -86,7 +86,7 @@ function SampleMenuButtons(number) {
             "interactive": {
                 "type": "button",
                 "body": {
-                    "text": "Oops! 🙈 Totally missed your call earlier. Our bad! Sorry about that! While our operators are a bit busy, why not take a moment to explore Multimaxx? Just hit those nice buttons below to start! If there's anything specific you're looking for, call us back +35699007744"
+                    "text": "Oops! 🙈 While our operators are a bit busy, why not take a moment to explore Multimaxx? If there's anything specific you're looking for, press \"☎️ Contact Us\""
                 },
                 "action": {
                     "buttons": [
@@ -129,13 +129,36 @@ function SampleAboutButtons(number) {
             "interactive": {
                 "type": "button",
                 "body": {
-                    "text": `MULTIMAXX offers family entertainment venues where you always find unique activities!
-                    We are specialists in Laser tag - combining the classic games of hide-and-seek and tag with a high tech twist.
-                    LASERMAXX, CYBERMAXX, BATTLEMAXX any kind of laser tag for you to enjoy the most! 
-                    Our multi-level arenas has dazzling lighting, swirling fog and energetic music to add to the excitement for up to 16 adult or 20 children in each game.
-                    A part from Laser tag we offer plenty of other fun attractions such as VIRTUALMAXX - 360 degree virtual experience and our ARCADMAXX - to enjoy your favourite arcade experience!
-                    MULTIMAXX offers special packages for birthday parties, day camps, youth groups and sports teams. Schools and other youth organizations can also experience our tailormade packages for young and active students.
-                    MULTIMAXX also offers corporate team building events and private events.`
+                    "text": "🎉 Immerse yourself in an epic laser tag adventure at MULTIMAXX! Our realistic locations feature urban battlefields, futuristic arenas, and outdoor terrains for an authentic experience. Specializing in LASERMAXX, CYBERMAXX, and BATTLEMAXX, our multi-level arenas offer captivating lighting, fog, and energetic music.\n\nBut that's not all! 🚀 Explore VIRTUALMAXX for a mind-blowing 360-degree virtual experience and 🎮 ARCADMAXX for classic arcade fun! 🕹️ Tailored packages await for birthdays, camps, youth groups, schools, corporate team-building, and private events.\n\nDon't miss out on the excitement! Join us at MULTIMAXX for an unforgettable entertainment experience! 🚀🔫🎮"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_menu",
+                                "title": "📑 Back to Menu"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleContactButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🚀 Ready for laser tag action? Join us at LASERMAXX, Level 4, Bay Street Complex, Saint Julian's, Malta! 🎯 Contact us at info@starwarsmalta.com or give us a ring at +35699177777.\n\n🌐 CYBERMAXX awaits at Level 2, Main Street Complex, Paola, Malta! Dive into futuristic battles with us. 🤖 Reach out at info@starwarsmalta.com or call us at +35627627270.\n\n⚔️ BATTLEMAXX, the ultimate showdown! Connect with us at info@starwarsmalta.com or dial +35699177777 for thrilling experiences. 🎮 Join the battle!"
                 },
                 "action": {
                     "buttons": [
@@ -160,5 +183,6 @@ module.exports = {
     SendKidsOffer,
     SampleMenuButtons,
     SampleBookURLButton,
-    SampleAboutButtons
+    SampleAboutButtons,
+    SampleContactButtons
 }
