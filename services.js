@@ -1,7 +1,7 @@
 const http = require("https")
 
 function SendMessageWhatsApp(data) {
-    var TOKEN = "EAAxmAZC3npGQBO3MlBRlWb3CjaO3sgBue7KhVrSyf96OJJDuZCFYXdfFSx7u4IMZB26gTOyfNZA4rapxBBc5mwrgSZCli39xFKm12C8MHnwE8e0xcWZBMZASwEiTgUeGp9ctdfRZCYpYrgSWB92Pa2f2PdZCHYxlHImlsZCzmj9K4uRPrRdI3AqvL3ArRNUZCLfN5bGW722kP5NgoazQsmZAdZCQZD"
+    var TOKEN = "EAAxmAZC3npGQBO6sY8DsZBFTH1nINWRyD0HRM0bZCapZBTNsatXOBLSK3mhhVClVtmBgXeLVxsz8GRxCMI9y303JvnKq3I0SJQxrv6VP5sYNPSqr8HZB5e3bf6NLZB8EevvGNHvYhQxAZCzoOhyko0rNmZB5Ie3bbQZB1CKkxbVrsqyQQE07kQEYWA6YXoQGxNXsk"
 
     // options to send requests
     const options = {
