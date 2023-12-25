@@ -12,6 +12,29 @@ function SampleText(textResponse, number) {
     return data
 }
 
+function SampleTextTemplate(number) {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": number,
+        "type": "template",
+        "template": {
+            "name": "say_hi",
+            "language": {
+                "code": "en_US"
+            },
+            "components": [
+                {
+                    "type": "body",
+                    "parameters": [
+                    ]
+                }
+            ]
+        }
+    })
+    return data
+}
+
 function SendTeenOffer(number) {
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
@@ -495,6 +518,7 @@ function SampleBattleMaxxButtons2(number) {
 
 module.exports = {
     SampleText,
+    SampleTextTemplate,
     SendTeenOffer,
     SendKidsOffer,
     SampleMenuButtons,

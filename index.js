@@ -112,6 +112,15 @@ router.post('/', async (req, res) => {
                 if (text === "!menu") {
                     services.SendMessageWhatsApp(models.SampleMenuButtons(number))
                 }
+            } else if (type === 'button') {
+                const buttonText = jsonData.entry[0].changes[0].value.messages[0].button.text
+                if (buttonText === 'About Us') {
+                    services.SendMessageWhatsApp(models.SampleAboutButtons(number))
+                } else if (buttonText === 'Activities') {
+                    services.SendMessageWhatsApp(models.SampleContactButtons(number))
+                } else if (buttonText === 'Contact Us') {
+                    services.SendMessageWhatsApp(models.SampleActivityButtons(number))
+                }
             }
         }
         res.send("EVENT_RECEIVED no error")
@@ -134,10 +143,10 @@ router.post('/calldata/:accountId/:mobile/:uuid', async (req, res) => {
         if (calldata.answered === false) {
             if (calldata.number.length === 8) {
                 let number = "+356" + calldata.number
-                services.SendMessageWhatsApp(models.SampleMenuButtons(number))
+                services.SendMessageWhatsApp(models.SampleTextTemplate(number))
             } else {
                 let number = calldata.number
-                services.SendMessageWhatsApp(models.SampleMenuButtons(number))
+                services.SendMessageWhatsApp(models.SampleTextTemplate(number))
             }
         }
 
