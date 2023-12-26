@@ -117,9 +117,9 @@ router.post('/', async (req, res) => {
                 if (buttonText === 'About Us') {
                     services.SendMessageWhatsApp(models.SampleAboutButtons(number))
                 } else if (buttonText === 'Activities') {
-                    services.SendMessageWhatsApp(models.SampleContactButtons(number))
-                } else if (buttonText === 'Contact Us') {
                     services.SendMessageWhatsApp(models.SampleActivityButtons(number))
+                } else if (buttonText === 'Contact Us') {
+                    services.SendMessageWhatsApp(models.SampleContactButtons(number))
                 }
             }
         }
