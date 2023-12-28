@@ -17,6 +17,29 @@ const app = express();
 app.use(express.json({ limit: '10mb' }));
 app.use(useragent.express());
 
+const picturesIDs = {
+    ghaxaq: {
+        bmxgh_group: "1078390633299517",
+        bmxgh_group2: "1019324105964659",
+        bmxgh_guy: "1605220973635265",
+        bmxgh_guy_mg: "797883088844791"
+    },
+    kordin: {
+        bmxk_group: "326398410317727",
+        bmxk_group2: "1734044077064505",
+        bmxk_guy: "299812852771701",
+        bmxk_guy_mg: "736581517998754"
+    },
+    attractions: {
+        vr_guy: "1055062139114872",
+        vr_girl: "341574101980142",
+        sg_boy: "2079503415763000",
+        sg_duo: "329086523413359",
+        bumping_cars: "1389518181989769",
+        bumping_cars2: "878370297113942"
+    }
+}
+
 // check a token
 router.get('/', async (req, res) => {
     try {
@@ -44,34 +67,47 @@ router.post('/', async (req, res) => {
         if (jsonData.entry[0].changes[0].value.messages) {
             const type = jsonData.entry[0].changes[0].value.messages[0].type;
             const number = jsonData.entry[0].changes[0].value.messages[0].from;
+            const name = jsonData.entry[0].changes[0].value.contacts[0].profile.name;
+
             if (type === "interactive") {
                 const interactive_type = jsonData.entry[0].changes[0].value.messages[0].interactive.type;
                 if (interactive_type === "button_reply") {
                     const buttonId = jsonData.entry[0].changes[0].value.messages[0].interactive.button_reply.id;
                     switch (buttonId) {
+                        // Menu
+                        case "btn_menu":
+                            services.SendMessageWhatsApp(models.SampleMenuButtons(number, name))
+                            break
                         case "btn_company_info":
                             services.SendMessageWhatsApp(models.SampleAboutButtons(number))
-                            break
-                        case "btn_menu":
-                            services.SendMessageWhatsApp(models.SampleMenuButtons(number))
                             break
                         case "btn_contacts_info":
                             services.SendMessageWhatsApp(models.SampleContactButtons(number))
                             break
                         case "btn_activities_info":
                             services.SendMessageWhatsApp(models.SampleActivityButtons(number))
+                            break  
+                        case "btn_websites":
+                            services.SendMessageWhatsApp(models.SampleWebsites(number))
                             break
+                        case "btn_socials":
+                            services.SendMessageWhatsApp(models.SampleSocials(number))
+                            break
+                        // Activities    
+                        case "btn_all_activities":
+                            services.SendMessageWhatsApp(models.SampleAllServicesButtons(number))
+                            break
+                        // Attr
+                        case "btn_attractions":
+                            services.SendMessageWhatsApp(models.SampleAttractionsButtons(number))
+                            break
+                        // Laser tag
                         case "btn_lasertag":
                             services.SendMessageWhatsApp(models.SampleLaserTagButtons(number))
                             break
-                        case "btn_back_activities":
-                            services.SendMessageWhatsApp(models.SampleActivityButtons(number))
-                            break
+                        // Indoor laser tag
                         case "btn_indoor":
                             services.SendMessageWhatsApp(models.SampleIndoorLTButtons(number))
-                            break
-                        case "btn_back_laser_locs":
-                            services.SendMessageWhatsApp(models.SampleLaserTagButtons(number))
                             break
                         case "btn_cybermaxx":
                             services.SendMessageWhatsApp(models.SampleCyberMaxxButtons(number))
@@ -79,13 +115,9 @@ router.post('/', async (req, res) => {
                         case "btn_price_book":
                             services.SendMessageWhatsApp(models.SampleBookURLButton(number))
                             break
-                        case "btn_back_laser_indoor":
-                            services.SendMessageWhatsApp(models.SampleIndoorLTButtons(number))
-                            break
                         case "btn_lasermaxx":
                             services.SendMessageWhatsApp(models.SampleLaserMaxxButtons(number))
                             break
-
                         case "btn_outdoor":
                             services.SendMessageWhatsApp(models.SampleOutdoorLTButtons(number))
                             break
@@ -98,6 +130,22 @@ router.post('/', async (req, res) => {
                         case "btn_battlemaxx_ghaxaq":
                             services.SendMessageWhatsApp(models.SampleBattleMaxxButtons2(number))
                             break
+                        case "btn_pictures_ghaxaq":
+                            for (let picture in picturesIDs.ghaxaq) {
+                                services.SendMessageWhatsApp(models.SendPhoto(number, picturesIDs.ghaxaq[picture]))
+                            }
+                            break
+                        case "btn_pictures_kordin":
+                            for (let picture in picturesIDs.kordin) {
+                                services.SendMessageWhatsApp(models.SendPhoto(number, picturesIDs.kordin[picture]))
+                            }
+                            break
+                        case "btn_pictures_attractions":
+                            for (let picture in picturesIDs.attractions) {
+                                services.SendMessageWhatsApp(models.SendPhoto(number, picturesIDs.attractions[picture]))
+                            }
+                            break
+                        // Party packages
                         case "btn_packages":
                             services.SendMessageWhatsApp(models.SendTeenOffer(number))
                             services.SendMessageWhatsApp(models.SendKidsOffer(number))
@@ -108,10 +156,8 @@ router.post('/', async (req, res) => {
                     }
                 }
             } else if (type === "text") {
-                const text = jsonData.entry[0].changes[0].value.messages[0].text.body;
-                if (text === "!menu") {
-                    services.SendMessageWhatsApp(models.SampleMenuButtons(number))
-                }
+                // const text = jsonData.entry[0].changes[0].value.messages[0].text.body;
+                services.SendMessageWhatsApp(models.SampleMenuButtons(number, name))
             } else if (type === 'button') {
                 const buttonText = jsonData.entry[0].changes[0].value.messages[0].button.text
                 if (buttonText === 'About Us') {

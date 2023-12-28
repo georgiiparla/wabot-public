@@ -65,6 +65,19 @@ function SendKidsOffer(number) {
     return data
 }
 
+function SendPhoto(number, id) {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": number,
+        "type": "image",
+        "image": {
+            "id": id
+        }
+    })
+    return data
+}
+
 function SampleBookURLButton(number) {
     const data = JSON.stringify(
         {
@@ -99,7 +112,7 @@ function SampleBookURLButton(number) {
     return data
 }
 
-function SampleMenuButtons(number) {
+function SampleMenuButtons(number, name) {
     const data = JSON.stringify(
         {
             "messaging_product": "whatsapp",
@@ -109,7 +122,7 @@ function SampleMenuButtons(number) {
             "interactive": {
                 "type": "button",
                 "body": {
-                    "text": "Oops! 🙈 While our operators are a bit busy, why not take a moment to explore Multimaxx? If there's anything specific you're looking for, press \"☎️ Contact Us\""
+                    "text": `*Nice to see you, ${name}! 👋*\n🤖 I'm your Multimaxx chatbot. If you're keen on exploring the range of activities we have and want to book them online, go ahead and navigate through the buttons below 🌟🎉`
                 },
                 "action": {
                     "buttons": [
@@ -124,7 +137,7 @@ function SampleMenuButtons(number) {
                             "type": "reply",
                             "reply": {
                                 "id": "btn_activities_info",
-                                "title": "🎉 Activities"
+                                "title": "🎉 Our Services"
                             }
                         },
                         {
@@ -152,15 +165,87 @@ function SampleAboutButtons(number) {
             "interactive": {
                 "type": "button",
                 "body": {
-                    "text": "🎉 Immerse yourself in an epic laser tag adventure at MULTIMAXX! Our realistic locations feature urban battlefields, futuristic arenas, and outdoor terrains for an authentic experience. Specializing in LASERMAXX, CYBERMAXX, and BATTLEMAXX, our multi-level arenas offer captivating lighting, fog, and energetic music.\n\nBut that's not all! 🚀 Explore VIRTUALMAXX for a mind-blowing 360-degree virtual experience and 🎮 ARCADMAXX for classic arcade fun! 🕹️ Tailored packages await for birthdays, camps, youth groups, schools, corporate team-building, and private events.\n\nDon't miss out on the excitement! Join us at MULTIMAXX for an unforgettable entertainment experience! 🚀🔫🎮"
+                    "text": "🎉 Immerse yourself in an epic laser tag adventure at MULTIMAXX! Our realistic locations feature urban battlefields, futuristic arenas, and outdoor terrains for an authentic experience.\n\nBut that's not all! 🚀 Explore VIRTUALMAXX for a mind-blowing 360-degree virtual experience and 🕹️ ARCADMAXX for classic arcade fun!\n\n🎁 Tailored packages await for birthdays, camps, youth groups, schools, corporate team-building, and private events.\n\nDon't miss out on the excitement! Join us at MULTIMAXX for an unforgettable entertainment experience! 🚀🔫🎮"
                 },
                 "action": {
                     "buttons": [
                         {
                             "type": "reply",
                             "reply": {
+                                "id": "btn_websites",
+                                "title": "🔗 Website"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_socials",
+                                "title": "📌 Our Socials"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
                                 "id": "btn_menu",
                                 "title": "📑 Back to Menu"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleWebsites(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "www.starwarsmalta.com"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_company_info",
+                                "title": "⬅️ Back"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleSocials(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "👥 Facebook:\nwww.facebook.com/battlemaxx/\nwww.facebook.com/multimaxxmalta\n\n📱 Instagram:\nwww.instagram.com/multimaxxmalta"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_company_info",
+                                "title": "⬅️ Back"
                             }
                         }
                     ]
@@ -181,7 +266,7 @@ function SampleContactButtons(number) {
             "interactive": {
                 "type": "button",
                 "body": {
-                    "text": "🚀 Ready for laser tag action? Join us at LASERMAXX, Level 4, Bay Street Complex, Saint Julian's, Malta! 🎯 Contact us at info@starwarsmalta.com or give us a ring at +35699177777.\n\n🌐 CYBERMAXX awaits at Level 2, Main Street Complex, Paola, Malta! Dive into futuristic battles with us. 🤖 Reach out at info@starwarsmalta.com or call us at +35627627270.\n\n⚔️ BATTLEMAXX, the ultimate showdown! Connect with us at info@starwarsmalta.com or dial +35699177777 for thrilling experiences. 🎮 Join the battle!"
+                    "text": "🚀 Ready for laser tag action? Join us at LASERMAXX, Level 4, Bay Street Complex, Saint Julian's, Malta! 🎯 Contact us at info@starwarsmalta.com or give us a ring at +35699177777.\n\n🌐 CYBERMAXX awaits at Level 2, Main Street Complex, Paola, Malta! Dive into futuristic battles with us. 🤖 Reach out at info@starwarsmalta.com or call us at +35627627270.\n\n⚔️ BATTLEMAXX, the ultimate showdown! Connect with us at info@starwarsmalta.com or dial +35699177777 for outdoor laser tag experiences. 🏰 Join the battle!"
                 },
                 "action": {
                     "buttons": [
@@ -210,15 +295,15 @@ function SampleActivityButtons(number) {
             "interactive": {
                 "type": "button",
                 "body": {
-                    "text": "🌟 Discover the range of activities we offer!"
+                    "text": "🌟 To discover the range of activities we offer, press the 🚀 *All activities* button\n\nTo explore party packages, please, press the 🎁 *Party packages* button. Just let you know that if you wish to book something from the party packages, kindly wait for our call.\n\n"
                 },
                 "action": {
                     "buttons": [
                         {
                             "type": "reply",
                             "reply": {
-                                "id": "btn_lasertag",
-                                "title": "🔫 Laser Tag"
+                                "id": "btn_all_activities",
+                                "title": "🚀 All activities"
                             }
                         },
                         {
@@ -233,6 +318,85 @@ function SampleActivityButtons(number) {
                             "reply": {
                                 "id": "btn_menu",
                                 "title": "📑 Back to Menu"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleAllServicesButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🌟 To obtain the information about our laser tag and book a game, kindly press the 🔫 *Laser Tag* button.\n\nTo get details about other activities such as Arcade Machines, Virtual Reality and Bumper Cars, kindly press the 🕹️ *Attractions* button."
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_lasertag",
+                                "title": "🔫 Laser Tag"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_attractions",
+                                "title": "🕹️ Attractions"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_activities_info",
+                                "title": "⬅️ Back"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    )
+    return data
+}
+
+function SampleAttractionsButtons(number) {
+    const data = JSON.stringify(
+        {
+            "messaging_product": "whatsapp",
+            "recipient_type": "individual",
+            "to": number,
+            "type": "interactive",
+            "interactive": {
+                "type": "button",
+                "body": {
+                    "text": "🕶️ Virtual Reality - Our head-mounted displays allow you to sit down and feel like the protagonist in incredible cinematic adventures. Once you put on the Oculus Rift, you're transported into another dimension—a journey you shouldn't miss!\n**Available in Multimaxx Bay Street and Multimaxx PAVI*\n\n🎯 Shooting Gallery - Point at the ducks and pull the trigger! Our shooting gallery offers an array of different game modes to test your aiming skills. The rifle and its explosive sounds are as lifelike as it gets! Shoot your way up to that high score!\n**Available in Multimaxx Bay Street and Multimaxx PAVI*\n\n🚗💥 Bumper Cars - Spin, whirl, revolve, and rotate around MULTIMAXX's dazzling indoor Bumper Car Arena, colliding with opponents and asserting your dominance! These single-driven cars challenge your driving skills as you engage in bumper-to-bumper action against family and friends. Ready to accelerate to the max?\n**Available only in Multimaxx PAVI*"
+                },
+                "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_pictures_attractions",
+                                "title": "📷 See pictures"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_all_activities",
+                                "title": "⬅️ Back"
                             }
                         }
                     ]
@@ -274,7 +438,7 @@ function SampleLaserTagButtons(number) {
                         {
                             "type": "reply",
                             "reply": {
-                                "id": "btn_back_activities",
+                                "id": "btn_all_activities",
                                 "title": "⬅️ Back"
                             }
                         }
@@ -317,7 +481,7 @@ function SampleIndoorLTButtons(number) {
                         {
                             "type": "reply",
                             "reply": {
-                                "id": "btn_back_laser_locs",
+                                "id": "btn_lasertag",
                                 "title": "⬅️ Back"
                             }
                         }
@@ -350,10 +514,17 @@ function SampleCyberMaxxButtons(number) {
                                 "title": "🔍👀 More"
                             }
                         },
+                        // {
+                        //     "type": "reply",
+                        //     "reply": {
+                        //         "id": "btn_pictures_cybermaxx",
+                        //         "title": "📷 See pictures"
+                        //     }
+                        // },
                         {
                             "type": "reply",
                             "reply": {
-                                "id": "btn_back_laser_indoor",
+                                "id": "btn_indoor",
                                 "title": "⬅️ Back"
                             }
                         }
@@ -386,10 +557,17 @@ function SampleLaserMaxxButtons(number) {
                                 "title": "🔍👀 More"
                             }
                         },
+                        // {
+                        //     "type": "reply",
+                        //     "reply": {
+                        //         "id": "btn_pictures_lasermaxx",
+                        //         "title": "📷 See pictures"
+                        //     }
+                        // },
                         {
                             "type": "reply",
                             "reply": {
-                                "id": "btn_back_laser_indoor",
+                                "id": "btn_indoor",
                                 "title": "⬅️ Back"
                             }
                         }
@@ -432,7 +610,7 @@ function SampleOutdoorLTButtons(number) {
                         {
                             "type": "reply",
                             "reply": {
-                                "id": "btn_back_laser_locs",
+                                "id": "btn_lasertag",
                                 "title": "⬅️ Back"
                             }
                         }
@@ -468,7 +646,14 @@ function SampleBattleMaxxButtons1(number) {
                         {
                             "type": "reply",
                             "reply": {
-                                "id": "btn_back_laser_outdoor",
+                                "id": "btn_pictures_kordin",
+                                "title": "📷 See pictures"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_outdoor",
                                 "title": "⬅️ Back"
                             }
                         }
@@ -504,7 +689,14 @@ function SampleBattleMaxxButtons2(number) {
                         {
                             "type": "reply",
                             "reply": {
-                                "id": "btn_back_laser_outdoor",
+                                "id": "btn_pictures_ghaxaq",
+                                "title": "📷 See pictures"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "btn_outdoor",
                                 "title": "⬅️ Back"
                             }
                         }
@@ -521,11 +713,16 @@ module.exports = {
     SampleTextTemplate,
     SendTeenOffer,
     SendKidsOffer,
+    SendPhoto,
     SampleMenuButtons,
     SampleBookURLButton,
     SampleAboutButtons,
     SampleContactButtons,
+    SampleWebsites,
+    SampleSocials,
     SampleActivityButtons,
+    SampleAllServicesButtons,
+    SampleAttractionsButtons,
     SampleLaserTagButtons,
     SampleIndoorLTButtons,
     SampleCyberMaxxButtons,
