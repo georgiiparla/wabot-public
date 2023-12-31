@@ -8,39 +8,15 @@ const useragent = require('express-useragent');
 const { slugify } = require('transliteration');
 const services = require("./services")
 const models = require("./models")
+const bot = require("./bot")
 
-function wait(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+// const access_token = "btu0lSe8fbdrHiMOza978fXK";
 
 const app = express();
 app.use(express.json({ limit: '10mb' }));
 app.use(useragent.express());
 
-const picturesIDs = {
-    ghaxaq: {
-        bmxgh_group: "1078390633299517",
-        bmxgh_group2: "1019324105964659",
-        bmxgh_guy: "1605220973635265",
-        bmxgh_guy_mg: "797883088844791"
-    },
-    kordin: {
-        bmxk_group: "326398410317727",
-        bmxk_group2: "1734044077064505",
-        bmxk_guy: "299812852771701",
-        bmxk_guy_mg: "736581517998754"
-    },
-    attractions: {
-        vr_guy: "1055062139114872",
-        vr_girl: "341574101980142",
-        sg_boy: "2079503415763000",
-        sg_duo: "329086523413359",
-        bumping_cars: "1389518181989769",
-        bumping_cars2: "878370297113942"
-    }
-}
-
-// check a token
+// Check a token
 router.get('/', async (req, res) => {
     try {
         var accessToken = "btu0lSe8fbdrHiMOza978fXK";
@@ -59,116 +35,12 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Process incoming messages
 router.post('/', async (req, res) => {
     try {
         // Unpacking the message
         console.log(req.body)
-        jsonData = req.body
-        if (jsonData.entry[0].changes[0].value.messages) {
-            const type = jsonData.entry[0].changes[0].value.messages[0].type;
-            const number = jsonData.entry[0].changes[0].value.messages[0].from;
-            const name = jsonData.entry[0].changes[0].value.contacts[0].profile.name;
-
-            if (type === "interactive") {
-                const interactive_type = jsonData.entry[0].changes[0].value.messages[0].interactive.type;
-                if (interactive_type === "button_reply") {
-                    const buttonId = jsonData.entry[0].changes[0].value.messages[0].interactive.button_reply.id;
-                    switch (buttonId) {
-                        // Menu
-                        case "btn_menu":
-                            services.SendMessageWhatsApp(models.SampleMenuButtons(number, name))
-                            break
-                        case "btn_company_info":
-                            services.SendMessageWhatsApp(models.SampleAboutButtons(number))
-                            break
-                        case "btn_contacts_info":
-                            services.SendMessageWhatsApp(models.SampleContactButtons(number))
-                            break
-                        case "btn_activities_info":
-                            services.SendMessageWhatsApp(models.SampleActivityButtons(number))
-                            break  
-                        case "btn_websites":
-                            services.SendMessageWhatsApp(models.SampleWebsites(number))
-                            break
-                        case "btn_socials":
-                            services.SendMessageWhatsApp(models.SampleSocials(number))
-                            break
-                        // Activities    
-                        case "btn_all_activities":
-                            services.SendMessageWhatsApp(models.SampleAllServicesButtons(number))
-                            break
-                        // Attr
-                        case "btn_attractions":
-                            services.SendMessageWhatsApp(models.SampleAttractionsButtons(number))
-                            break
-                        // Laser tag
-                        case "btn_lasertag":
-                            services.SendMessageWhatsApp(models.SampleLaserTagButtons(number))
-                            break
-                        // Indoor laser tag
-                        case "btn_indoor":
-                            services.SendMessageWhatsApp(models.SampleIndoorLTButtons(number))
-                            break
-                        case "btn_cybermaxx":
-                            services.SendMessageWhatsApp(models.SampleCyberMaxxButtons(number))
-                            break
-                        case "btn_price_book":
-                            services.SendMessageWhatsApp(models.SampleBookURLButton(number))
-                            break
-                        case "btn_lasermaxx":
-                            services.SendMessageWhatsApp(models.SampleLaserMaxxButtons(number))
-                            break
-                        case "btn_outdoor":
-                            services.SendMessageWhatsApp(models.SampleOutdoorLTButtons(number))
-                            break
-                        case "btn_battlemaxx_kordin":
-                            services.SendMessageWhatsApp(models.SampleBattleMaxxButtons1(number))
-                            break
-                        case "btn_back_laser_outdoor":
-                            services.SendMessageWhatsApp(models.SampleOutdoorLTButtons(number))
-                            break
-                        case "btn_battlemaxx_ghaxaq":
-                            services.SendMessageWhatsApp(models.SampleBattleMaxxButtons2(number))
-                            break
-                        case "btn_pictures_ghaxaq":
-                            for (let picture in picturesIDs.ghaxaq) {
-                                services.SendMessageWhatsApp(models.SendPhoto(number, picturesIDs.ghaxaq[picture]))
-                            }
-                            break
-                        case "btn_pictures_kordin":
-                            for (let picture in picturesIDs.kordin) {
-                                services.SendMessageWhatsApp(models.SendPhoto(number, picturesIDs.kordin[picture]))
-                            }
-                            break
-                        case "btn_pictures_attractions":
-                            for (let picture in picturesIDs.attractions) {
-                                services.SendMessageWhatsApp(models.SendPhoto(number, picturesIDs.attractions[picture]))
-                            }
-                            break
-                        // Party packages
-                        case "btn_packages":
-                            services.SendMessageWhatsApp(models.SendTeenOffer(number))
-                            services.SendMessageWhatsApp(models.SendKidsOffer(number))
-                            break
-                        default:
-                            console.log("No buttons reaction")
-                            break
-                    }
-                }
-            } else if (type === "text") {
-                // const text = jsonData.entry[0].changes[0].value.messages[0].text.body;
-                services.SendMessageWhatsApp(models.SampleMenuButtons(number, name))
-            } else if (type === 'button') {
-                const buttonText = jsonData.entry[0].changes[0].value.messages[0].button.text
-                if (buttonText === 'About Us') {
-                    services.SendMessageWhatsApp(models.SampleAboutButtons(number))
-                } else if (buttonText === 'Activities') {
-                    services.SendMessageWhatsApp(models.SampleActivityButtons(number))
-                } else if (buttonText === 'Contact Us') {
-                    services.SendMessageWhatsApp(models.SampleContactButtons(number))
-                }
-            }
-        }
+        bot.processMessage(req.body)
         res.send("EVENT_RECEIVED no error")
     } catch (e) {
         console.log(e)
@@ -189,10 +61,10 @@ router.post('/calldata/:accountId/:mobile/:uuid', async (req, res) => {
         if (calldata.answered === false) {
             if (calldata.number.length === 8) {
                 let number = "+356" + calldata.number
-                services.SendMessageWhatsApp(models.SampleTextTemplate(number))
+                services.SendMessageWhatsApp(models.SampleTemplate(number))
             } else {
                 let number = calldata.number
-                services.SendMessageWhatsApp(models.SampleTextTemplate(number))
+                services.SendMessageWhatsApp(models.SampleTemplate(number))
             }
         }
 
@@ -202,6 +74,7 @@ router.post('/calldata/:accountId/:mobile/:uuid', async (req, res) => {
     res.json({ status: 'OK' });
 });
 
+// POST requests for calls' recordings
 router.post('/event/:accountId/:mobile/:uuid', async (req, res) => {
     try {
         const { uuid, accountId, mobile } = req.params;
@@ -279,8 +152,10 @@ router.post('/log/:accountId/:mobile',
         res.json({ status: 'OK' });
     });
 
+// Apply routes
 app.use("", router)
 
+// Start the app
 app.listen(config.port, () => {
     console.log('start with config', config);
 });
