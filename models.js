@@ -135,15 +135,45 @@ class URLMessage {
 
 
 const booking = new URLMessage(
-    "🔍🌐 To book online",
+    "To book online",
     "Follow the link below"
 )
 booking.addURL("Book online", "https://www.starwarsmalta.com/book-online")
 
 
 
+const websiteLink = new URLMessage(
+    "MULTIMAXX Website",
+    "Follow the link below"
+)
+websiteLink.addURL("Multimaxx", "https://www.starwarsmalta.com/")
+
+const facebookLink1 = new URLMessage(
+    "👥 BATTLEMAXX Facebook",
+    "Follow the link below"
+)
+facebookLink1.addURL("BATTLEMAXX", "https://www.facebook.com/battlemaxx/")
+
+
+
+const facebookLink2 = new URLMessage(
+    "👥 MULTIMAXX Facebook",
+    "Follow the link below"
+)
+facebookLink2.addURL("MULTIMAXX", "https://www.facebook.com/multimaxxmalta/")
+
+
+
+const instagramLink = new URLMessage(
+    "📱 MULTIMAXX Instagram",
+    "Follow the link below"
+)
+instagramLink.addURL("MULTIMAXX", "https://www.instagram.com/multimaxxmalta/")
+
+
+
 // btn_menu
-const menu = new ButtonsMessage("*Nice to see you! 👋*\n🤖 I'm your Multimaxx chatbot. If you're keen on exploring the range of activities we have and want to book them online, go ahead and navigate through the buttons below 🌟🎉")
+const menu = new ButtonsMessage("*Hi! I'm a Multimaxx bot.* 📌 Here you can get more information about activities we provide, photos from our venues and details regarding party packages. Use the buttons below to navigate through the menu.")
 menu.addButton("btn_company_info", "🌐 About Us")
 menu.addButton("btn_activities_info", "🎉 Our Services")
 menu.addButton("btn_contacts_info", "☎️ Contact Us")
@@ -151,7 +181,7 @@ menu.addButton("btn_contacts_info", "☎️ Contact Us")
 
 
 // "btn_company_info", "🌐 About Us"
-const aboutUs = new ButtonsMessage("🎉 Immerse yourself in an epic laser tag adventure at MULTIMAXX! Our realistic locations feature urban battlefields, futuristic arenas, and outdoor terrains for an authentic experience.\n\nBut that's not all! 🚀 Explore VIRTUALMAXX for a mind-blowing 360-degree virtual experience and 🕹️ ARCADMAXX for classic arcade fun!\n\n🎁 Tailored packages await for birthdays, camps, youth groups, schools, corporate team-building, and private events.\n\nDon't miss out on the excitement! Join us at MULTIMAXX for an unforgettable entertainment experience! 🚀🔫🎮")
+const aboutUs = new ButtonsMessage("Multimaxx is an entertainment company which is based on 🔫 Laser tag. Our locations feature urban battlefields, outdoor terrains for realistic experience (BATTLEMAXX), and indoor futuristic arenas (LASERMAXX, CYBERMAXX).\nBut that's not all. Explore 🎮 VIRTUALMAXX for a 360-degree virtual experience, 🚗💥 BUMPERMAXX to challenge your driving skills with electric bumper cars, and 🕹️ ARCADMAXX for classic arcade fun!\n🎁 Tailored packages await for birthdays, camps, youth groups, schools, corporate team-building, and private events. You can get more information via this online bot, or from our website and socials.")
 aboutUs.addButton("btn_websites", "🔗 Website")
 aboutUs.addButton("btn_socials", "📌 Our Socials")
 aboutUs.addButton("btn_menu", "📑 Back to Menu")
@@ -159,33 +189,33 @@ aboutUs.addButton("btn_menu", "📑 Back to Menu")
 
 
 // "btn_activities_info", "🎉 Our Services"
-const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *All activities* button\n\nTo explore party packages, please, press the 🎁 *Party packages* button. Just let you know that if you wish to book something from the party packages, kindly wait for our call.\n\n")
-ourServices.addButton("btn_all_activities", "🚀 All activities")
+const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore party packages, please, press the 🎁 *Party packages* button.\n\n*Attention!* If you wish to book something from the party packages, kindly wait for our call or call us back.\n\n")
+ourServices.addButton("btn_all_activities", "🚀 Activities")
 ourServices.addButton("btn_packages", "🎁 Party packages")
 ourServices.addButton("btn_menu", "📑 Back to Menu")
 
 
 
 // "btn_contacts_info", "☎️ Contact Us"
-const contactUs = new ButtonsMessage("🚀 Ready for laser tag action? Join us at LASERMAXX, Level 4, Bay Street Complex, Saint Julian's, Malta! 🎯 Contact us at info@starwarsmalta.com or give us a ring at +35699177777.\n\n🌐 CYBERMAXX awaits at Level 2, Main Street Complex, Paola, Malta! Dive into futuristic battles with us. 🤖 Reach out at info@starwarsmalta.com or call us at +35627627270.\n\n⚔️ BATTLEMAXX, the ultimate showdown! Connect with us at info@starwarsmalta.com or dial +35699177777 for outdoor laser tag experiences. 🏰 Join the battle!")
+const contactUs = new ButtonsMessage("🚀 MULTIMAXX, Level 4, Bay Street Complex, Saint Julian's, Malta (LASERMAXX indoor laser tag, Virtual Reality, Shooting Gallery, Arcade Machines and Private parties)\n⚔️ BATTLEMAXX (outdoor laser tag in Paola and Għaxaq)\n📞 +35699177777\n📧 info@starwarsmalta.com\n\n🌐 CYBERMAXX, Level 2, Main Street Complex, Paola, Malta (Indoor laser tag)\n📞 +35627627270\n📧 info@starwarsmalta.com\n\n🎉 MULTIMAXX & SQUARE, PAVI Shopping Complex, Ħal Qormi (Bumping cars, Virtual Reality, Shooting Gallery, Arcade Machines and Private parties)\n📞 +35679022471\n📧 marketing@absolutecatering.com.mt")
 contactUs.addButton("btn_menu", "📑 Back to Menu")
 
 
 
 // "btn_websites", "🔗 Website"
-const website = new ButtonsMessage("www.starwarsmalta.com")
-website.addButton("btn_company_info", "⬅️ Back")
+// const website = new ButtonsMessage("www.starwarsmalta.com")
+// website.addButton("btn_company_info", "⬅️ Back")
 
 
 
-// "btn_socials", "📌 Our Socials"
-const socials = new ButtonsMessage("👥 Facebook:\nwww.facebook.com/battlemaxx\nwww.facebook.com/multimaxxmalta\n\n📱 Instagram:\nwww.instagram.com/multimaxxmalta")
-socials.addButton("btn_company_info", "⬅️ Back")
+// // "btn_socials", "📌 Our Socials"
+// const socials = new ButtonsMessage("👥 Facebook:\nwww.facebook.com/battlemaxx\nwww.facebook.com/multimaxxmalta\n\n📱 Instagram:\nwww.instagram.com/multimaxxmalta")
+// socials.addButton("btn_company_info", "⬅️ Back")
 
 
 
 // "btn_all_activities", "🚀 All activities"
-const allActivities = new ButtonsMessage("🌟 To obtain the information about our laser tag and book a game, kindly press the 🔫 *Laser Tag* button.\n\nTo get details about other activities such as Arcade Machines, Virtual Reality and Bumper Cars, kindly press the 🕹️ *Attractions* button.")
+const allActivities = new ButtonsMessage("🌟 To obtain the information about our laser tag and book a game, press the 🔫 *Laser Tag* button.\n\nTo get details about other activities such as Arcade Machines, Virtual Reality and Bumper Cars, kindly press the 🕹️ *Attractions* button.")
 allActivities.addButton("btn_lasertag", "🔫 Laser Tag")
 allActivities.addButton("btn_attractions", "🕹️ Attractions")
 allActivities.addButton("btn_activities_info", "⬅️ Back")
@@ -216,7 +246,7 @@ indoorLt.addButton("btn_lasertag", "⬅️ Back")
 
 
 // "btn_outdoor", "🌳 Outdoor"
-const outdoorLt = new ButtonsMessage("🌟 Discover the range of the outdoor Laser Tag we offer!\n\nMore about BMX only www.battlemaxx.com")
+const outdoorLt = new ButtonsMessage("🌟 Discover the range of the outdoor Laser Tag we offer!\n\nWebsite about BATTLEMAXX only: www.battlemaxx.com")
 outdoorLt.addButton("btn_battlemaxx_kordin", "⚔️ BMX Royal Prison")
 outdoorLt.addButton("btn_battlemaxx_ghaxaq", "🏹 BMX Forest")
 outdoorLt.addButton("btn_lasertag", "⬅️ Back")
@@ -225,21 +255,23 @@ outdoorLt.addButton("btn_lasertag", "⬅️ Back")
 
 // "btn_cybermaxx", "🌐 CYBERMAXX"
 const cybermaxx = new ButtonsMessage("🚀 Dive into the excitement at our large and modern Laser Tag arena on Level 2, Main Street Shopping Complex, Paola!\n\n🎮 Kid's party packages and private events are ready for booking. 🎉 Don't miss out on the ultimate fun! 🔫💫")
-cybermaxx.addButton("btn_price_book", "🔍👀 More")
+cybermaxx.addButton("btn_price_book", "🔍👀 Book online")
+cybermaxx.addButton("btn_pictures_cybermaxx", "📷 See pictures")
 cybermaxx.addButton("btn_indoor", "⬅️ Back")
 
 
 
 // "btn_lasermaxx", "🚀 LASERMAXX"
 const lasermaxx = new ButtonsMessage("🌟 Immerse yourself in the thrill of our indoor Laser Tag arena on Level 4, Bay Street Complex, St.Julian's, complete with dynamic lighting, swirling fog, and high-energy music to elevate the excitement 🚀🔦🎶\n\n🎉 Explore special packages tailored for birthday parties, corporate gatherings, and private events. Make your celebrations unforgettable with us! 🎂👔🎈")
-lasermaxx.addButton("btn_price_book", "🔍👀 More")
+lasermaxx.addButton("btn_price_book", "🔍👀 Book online")
+lasermaxx.addButton("btn_pictures_lasermaxx", "📷 See pictures")
 lasermaxx.addButton("btn_indoor", "⬅️ Back")
 
 
 
 // "btn_battlemaxx_kordin", "⚔️ BMX Royal Prison"
 const battlemaxxPrison = new ButtonsMessage("🎮 Embark on thrilling new game scenarios at the spectacular location of The Royal Navy Prison, constructed in 1866! 🏰⚔️\n\n🚪 Changing rooms, toilets, and a café are at your disposal for added convenience. Join the adventure and make unforgettable memories with us!")
-battlemaxxPrison.addButton("btn_price_book", "🔍👀 More")
+battlemaxxPrison.addButton("btn_price_book", "🔍👀 Book online")
 battlemaxxPrison.addButton("btn_pictures_kordin", "📷 See pictures")
 battlemaxxPrison.addButton("btn_outdoor", "⬅️ Back")
 
@@ -247,7 +279,7 @@ battlemaxxPrison.addButton("btn_outdoor", "⬅️ Back")
 
 // "btn_battlemaxx_ghaxaq", "🏹 BMX Forest"
 const battlemaxxForest = new ButtonsMessage("🌳 Embark on exhilarating new game scenarios at the expansive green area nestled in the woods in the South of Malta! 🏞️🎮\n\nJoin the adventure surrounded by nature and create lasting memories in this picturesque setting! 🌲✨")
-battlemaxxForest.addButton("btn_price_book", "🔍👀 More")
+battlemaxxForest.addButton("btn_price_book", "🔍👀 Book online")
 battlemaxxForest.addButton("btn_pictures_ghaxaq", "📷 See pictures")
 battlemaxxForest.addButton("btn_outdoor", "⬅️ Back")
 
@@ -261,8 +293,10 @@ module.exports = {
     aboutUs,
     ourServices,
     contactUs,
-    website,
-    socials,
+    websiteLink,
+    facebookLink1,
+    facebookLink2,
+    instagramLink,
     allActivities,
     laserTag,
     attractions,

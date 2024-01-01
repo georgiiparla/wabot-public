@@ -6,24 +6,27 @@ const sendMessage = services.SendMessageWhatsApp
 // Pictures DB (updates via Postman)
 const picturesIDs = {
     ghaxaq: {
-        bmxgh_group: "1078390633299517",
-        bmxgh_group2: "1019324105964659",
-        bmxgh_guy: "1605220973635265",
-        bmxgh_guy_mg: "797883088844791"
+        gh1: "771201721504934",
+        gh2: "1065029351484597",
+        gh3: "281171438293154"
     },
     kordin: {
-        bmxk_group: "326398410317727",
-        bmxk_group2: "1734044077064505",
-        bmxk_guy: "299812852771701",
-        bmxk_guy_mg: "736581517998754"
+        bm1: "332841023005189",
+        bm2: "756903696476728",
+        bm3: "352734307391183"
     },
     attractions: {
-        vr_guy: "1055062139114872",
-        vr_girl: "341574101980142",
-        sg_boy: "2079503415763000",
-        sg_duo: "329086523413359",
-        bumping_cars: "1389518181989769",
-        bumping_cars2: "878370297113942"
+        vr1: "764819148821604",
+        arc1: "211095368748627",
+        sg1: "24347580654885235",
+        bc1: "911968710284933",
+        pavi1: "906381237396692"
+    },
+    lasermaxx: {
+        lm1: "3664618580532657"
+    },
+    cybermaxx: {
+        cm: "379563371229131"
     }
 }
 
@@ -48,10 +51,12 @@ function processMessage(jsonData) {
                             sendMessage(models.aboutUs.to(number))
                             break
                         case "btn_websites":
-                            sendMessage(models.website.to(number))
+                            sendMessage(models.websiteLink.to(number))
                             break
                         case "btn_socials":
-                            sendMessage(models.socials.to(number))
+                            sendMessage(models.facebookLink1.to(number))
+                            sendMessage(models.facebookLink2.to(number))
+                            sendMessage(models.instagramLink.to(number))
                             break
                         // 1.2 Our Services -> 1.2.1 All activities | 1.2.2 Party packages
                         case "btn_activities_info":
@@ -100,6 +105,17 @@ function processMessage(jsonData) {
                             break
                         case "btn_lasermaxx":
                             sendMessage(models.lasermaxx.to(number))
+                            break
+                        // Send pictures
+                        case "btn_pictures_cybermaxx":
+                            for (let picture in picturesIDs.cybermaxx) {
+                                sendMessage(models.SendPhoto(number, picturesIDs.cybermaxx[picture]))
+                            }
+                            break
+                        case "btn_pictures_lasermaxx":
+                            for (let picture in picturesIDs.lasermaxx) {
+                                sendMessage(models.SendPhoto(number, picturesIDs.lasermaxx[picture]))
+                            }
                             break
                         // 1.2.1.1.2 Outdoor -> 1.2.1.1.2.1 BMX Prison | 1.2.1.1.2.2 BMX Forest
                         case "btn_battlemaxx_kordin":
