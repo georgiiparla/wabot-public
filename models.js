@@ -141,7 +141,6 @@ const booking = new URLMessage(
 booking.addURL("Book online", "https://www.starwarsmalta.com/book-online")
 
 
-
 const websiteLink = new URLMessage(
     "MULTIMAXX Website",
     "Follow the link below"
@@ -154,15 +153,11 @@ const facebookLink1 = new URLMessage(
 )
 facebookLink1.addURL("BATTLEMAXX", "https://www.facebook.com/battlemaxx/")
 
-
-
 const facebookLink2 = new URLMessage(
     "👥 MULTIMAXX Facebook",
     "Follow the link below"
 )
 facebookLink2.addURL("MULTIMAXX", "https://www.facebook.com/multimaxxmalta/")
-
-
 
 const instagramLink = new URLMessage(
     "📱 MULTIMAXX Instagram",
