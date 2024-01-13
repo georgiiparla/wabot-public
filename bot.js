@@ -160,7 +160,7 @@ function processMessage(jsonData) {
                     case "About Us":
                         sendMessage(models.aboutUs.to(number))
                         break
-                    case "Activities":
+                    case "Our Services":
                         sendMessage(models.ourServices.to(number))
                         break
                     case "Contact Us":
