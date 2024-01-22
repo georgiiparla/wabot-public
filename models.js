@@ -38,14 +38,14 @@ function SendDocument(number, id, caption, fileName) {
     return data
 }
 
-function SendPhoto(number, id) {
+function SendPhoto(number, link) {
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
         "recipient_type": "individual",
         "to": number,
         "type": "image",
         "image": {
-            "id": id
+            "link": link
         }
     })
     return data

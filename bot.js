@@ -6,27 +6,27 @@ const sendMessage = services.SendMessageWhatsApp
 // Pictures DB (updates via Postman)
 const picturesIDs = {
     ghaxaq: {
-        gh1: "771201721504934",
-        gh2: "1065029351484597",
-        gh3: "281171438293154"
+        gh1: "https://i.imgur.com/5XUSt5Y.jpg",
+        gh2: "https://i.imgur.com/bZSCPJN.jpg",
+        gh3: "https://i.imgur.com/CNeCiYq.jpg"
     },
     kordin: {
-        bm1: "332841023005189",
-        bm2: "756903696476728",
-        bm3: "352734307391183"
+        bm1: "https://i.imgur.com/GNFz9hi.jpg",
+        bm2: "https://i.imgur.com/W6CcOtz.jpg",
+        bm3: "https://i.imgur.com/z2h0JpZ.jpg"
     },
     attractions: {
-        vr1: "764819148821604",
-        arc1: "211095368748627",
-        sg1: "24347580654885235",
-        bc1: "911968710284933",
-        pavi1: "906381237396692"
+        vr1: "https://i.imgur.com/LvChGQf.jpg",
+        arc1: "https://i.imgur.com/WRxk5Ji.jpg",
+        sg1: "https://i.imgur.com/cismCIT.jpg",
+        bc1: "https://i.imgur.com/jVK3hC9.jpg",
+        pavi1: "https://i.imgur.com/KlrJhtG.jpg"
     },
     lasermaxx: {
-        lm1: "3664618580532657"
+        lm1: "https://i.imgur.com/mrxst24.jpg"
     },
     cybermaxx: {
-        cm: "379563371229131"
+        cm: "https://i.imgur.com/SCBj8Fi.jpg'"
     }
 }
 
