@@ -1,4 +1,17 @@
 // Models
+function SampleText(number, text) {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": number,
+        "type": "text",
+        "text": { // the text object
+            "preview_url": false,
+            "body": text
+        }
+    })
+    return data
+}
 
 function SampleTemplate(number) {
     const data = JSON.stringify({
@@ -147,24 +160,54 @@ const websiteLink = new URLMessage(
 )
 websiteLink.addURL("Multimaxx", "https://www.starwarsmalta.com/")
 
-const facebookLink1 = new URLMessage(
-    "👥 BATTLEMAXX Facebook",
+// const facebookLink1 = new URLMessage(
+//     "👥 BATTLEMAXX Facebook",
+//     "Follow the link below"
+// )
+// facebookLink1.addURL("BATTLEMAXX", "https://www.facebook.com/battlemaxx/")
+
+// const facebookLink2 = new URLMessage(
+//     "👥 MULTIMAXX Facebook",
+//     "Follow the link below"
+// )
+// facebookLink2.addURL("MULTIMAXX", "https://www.facebook.com/multimaxxmalta/")
+
+// const instagramLink = new URLMessage(
+//     "📱 MULTIMAXX Instagram",
+//     "Follow the link below"
+// )
+// instagramLink.addURL("MULTIMAXX", "https://www.instagram.com/multimaxxmalta/")
+
+
+const attrPhotos = new URLMessage(
+    "Photos from our venues",
     "Follow the link below"
 )
-facebookLink1.addURL("BATTLEMAXX", "https://www.facebook.com/battlemaxx/")
+attrPhotos.addURL("See pictures", "https://imgur.com/a/agNOxxv")
 
-const facebookLink2 = new URLMessage(
-    "👥 MULTIMAXX Facebook",
+const bmxPrison = new URLMessage(
+    "Photos from our venues",
     "Follow the link below"
 )
-facebookLink2.addURL("MULTIMAXX", "https://www.facebook.com/multimaxxmalta/")
+bmxPrison.addURL("See pictures", "https://imgur.com/a/KfjxOBu")
 
-const instagramLink = new URLMessage(
-    "📱 MULTIMAXX Instagram",
+const bmxGhaxaq = new URLMessage(
+    "Photos from our venues",
     "Follow the link below"
 )
-instagramLink.addURL("MULTIMAXX", "https://www.instagram.com/multimaxxmalta/")
+bmxGhaxaq.addURL("See pictures", "https://imgur.com/a/JvwdHUa")
 
+const cmx = new URLMessage(
+    "Photos from our venues",
+    "Follow the link below"
+)
+cmx.addURL("See pictures", "https://imgur.com/a/PWpoQqT")
+
+const lmx = new URLMessage(
+    "Photos from our venues",
+    "Follow the link below"
+)
+lmx.addURL("See pictures", "https://imgur.com/a/k08zIv5")
 
 
 // btn_menu
@@ -194,18 +237,6 @@ ourServices.addButton("btn_menu", "📑 Back to Menu")
 // "btn_contacts_info", "☎️ Contact Us"
 const contactUs = new ButtonsMessage("🚀 MULTIMAXX, Level 4, Bay Street Complex, Saint Julian's, Malta (LASERMAXX indoor laser tag, Virtual Reality, Shooting Gallery, Arcade Machines and Private parties)\n⚔️ BATTLEMAXX (outdoor laser tag in Paola and Għaxaq)\n📞 +35699177777\n📧 info@starwarsmalta.com\n\n🌐 CYBERMAXX, Level 2, Main Street Complex, Paola, Malta (Indoor laser tag)\n📞 +35627627270\n📧 info@starwarsmalta.com\n\n🎉 MULTIMAXX & SQUARE, PAVI Shopping Complex, Ħal Qormi (Bumping cars, Virtual Reality, Shooting Gallery, Arcade Machines and Private parties)\n📞 +35679022471\n📧 marketing@absolutecatering.com.mt")
 contactUs.addButton("btn_menu", "📑 Back to Menu")
-
-
-
-// "btn_websites", "🔗 Website"
-// const website = new ButtonsMessage("www.starwarsmalta.com")
-// website.addButton("btn_company_info", "⬅️ Back")
-
-
-
-// // "btn_socials", "📌 Our Socials"
-// const socials = new ButtonsMessage("👥 Facebook:\nwww.facebook.com/battlemaxx\nwww.facebook.com/multimaxxmalta\n\n📱 Instagram:\nwww.instagram.com/multimaxxmalta")
-// socials.addButton("btn_company_info", "⬅️ Back")
 
 
 
@@ -280,6 +311,7 @@ battlemaxxForest.addButton("btn_outdoor", "⬅️ Back")
 
 
 module.exports = {
+    SampleText,
     SampleTemplate,
     SendPhoto,
     SendDocument,
@@ -289,9 +321,6 @@ module.exports = {
     ourServices,
     contactUs,
     websiteLink,
-    facebookLink1,
-    facebookLink2,
-    instagramLink,
     allActivities,
     laserTag,
     attractions,
@@ -300,5 +329,10 @@ module.exports = {
     cybermaxx,
     lasermaxx,
     battlemaxxPrison,
-    battlemaxxForest
+    battlemaxxForest,
+    attrPhotos,
+    bmxPrison,
+    bmxGhaxaq,
+    cmx,
+    lmx
 }
