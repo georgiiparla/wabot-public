@@ -58,7 +58,7 @@ router.post('/calldata/:accountId/:mobile/:uuid', async (req, res) => {
         let calldata = JSON.parse(JSON.stringify(req.body));
         console.log(calldata)
 
-        if (calldata.answered === false) {
+        if (calldata.answered === false || calldata.answered === true) {
             if (calldata.number.length === 8) {
                 let number = "+356" + calldata.number
                 services.SendMessageWhatsApp(models.SampleTemplate(number))
