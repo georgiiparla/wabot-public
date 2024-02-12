@@ -160,6 +160,12 @@ const websiteLink = new URLMessage(
 )
 websiteLink.addURL("Multimaxx", "https://www.starwarsmalta.com/")
 
+const operatorChat = new URLMessage(
+    "To chat with our operators",
+    "Press the button below."
+)
+operatorChat.addURL("Chat online", "https://wa.me/message/BJBEEA44KRBSN1")
+
 // const facebookLink1 = new URLMessage(
 //     "👥 BATTLEMAXX Facebook",
 //     "Follow the link below"
@@ -214,7 +220,7 @@ lmx.addURL("See pictures", "https://imgur.com/a/k08zIv5")
 const menu = new ButtonsMessage("*Hi! I'm a Multimaxx bot.* 📌 Here you can get more information about activities we provide, photos from our venues and details regarding party packages. Use the buttons below to navigate through the menu.")
 menu.addButton("btn_company_info", "🌐 About Us")
 menu.addButton("btn_activities_info", "🎉 Our Services")
-menu.addButton("btn_contacts_info", "☎️ Contact Us")
+menu.addButton("btn_contacts_info", "☎️ Chat with us")
 
 
 
@@ -315,6 +321,7 @@ module.exports = {
     SampleTemplate,
     SendPhoto,
     SendDocument,
+    operatorChat,
     booking,
     menu,
     aboutUs,

@@ -98,6 +98,7 @@ function processMessage(jsonData) {
                             break
                         // 1.3 Contact Us
                         case "btn_contacts_info":
+                            sendMessage(models.operatorChat.to(number))
                             sendMessage(models.contactUs.to(number))
                             break
                         // Booking button
