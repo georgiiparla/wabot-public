@@ -39,13 +39,13 @@ function processMessage(jsonData) {
                         case "btn_packages":
                             sendMessage(models.SendDocument(
                                 number,
-                                "1835477306899330",
+                                "962347605410984",
                                 "Party offers for teens",
                                 "Offers for teens"
                             ))
                             sendMessage(models.SendDocument(
                                 number,
-                                "6525644494202768",
+                                "2793027174179003",
                                 "Party offers for kids (4-12 years old)",
                                 "Offers for kids"
                             ))
