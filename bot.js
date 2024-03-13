@@ -39,15 +39,27 @@ function processMessage(jsonData) {
                         case "btn_packages":
                             sendMessage(models.SendDocument(
                                 number,
-                                "962347605410984",
-                                "Party offers for teens",
-                                "Offers for teens"
+                                "1083193819461481",
+                                "St.Julian's Baystreet",
+                                "St.Julian's Baystreet"
                             ))
                             sendMessage(models.SendDocument(
                                 number,
-                                "2793027174179003",
-                                "Party offers for kids (4-12 years old)",
-                                "Offers for kids"
+                                "948187283542199",
+                                "Paola Mainstreet",
+                                "Paola Mainstreet"
+                            ))
+                            sendMessage(models.SendDocument(
+                                number,
+                                "966304458342155",
+                                "Qormi PAVI",
+                                "Qormi PAVI"
+                            ))
+                            sendMessage(models.SendDocument(
+                                number,
+                                "730656119214857",
+                                "BATTLEMAXX",
+                                "BATTLEMAXX"
                             ))
                             break
                         // 1.2.1 All activities -> 1.2.1.1 Laser Tag | 1.2.1.2 Attractions
