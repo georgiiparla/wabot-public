@@ -37,29 +37,53 @@ function processMessage(jsonData) {
                             sendMessage(models.allActivities.to(number))
                             break
                         case "btn_packages":
-                            sendMessage(models.SendDocument(
+                            // sendMessage(models.SendDocument(
+                            //     number,
+                            //     "1083193819461481",
+                            //     "St.Julian's Baystreet",
+                            //     "St.Julian's Baystreet"
+                            // ))
+                            // sendMessage(models.SendDocument(
+                            //     number,
+                            //     "948187283542199",
+                            //     "Paola Mainstreet",
+                            //     "Paola Mainstreet"
+                            // ))
+                            // sendMessage(models.SendDocument(
+                            //     number,
+                            //     "966304458342155",
+                            //     "Qormi PAVI",
+                            //     "Qormi PAVI"
+                            // ))
+                            // sendMessage(models.SendDocument(
+                            //     number,
+                            //     "730656119214857",
+                            //     "BATTLEMAXX",
+                            //     "BATTLEMAXX"
+                            // ))
+                            sendMessage(models.SendDocumentByLink(
                                 number,
-                                "1083193819461481",
+                                "https://www.starwarsmalta.com/_files/ugd/6ced11_c8e9bffa63764c409804608e038b5df7.pdf",
+                                "BATTLEMAXX",
+                                "BATTLEMAXX"
+                            ))
+                            sendMessage(models.SendDocumentByLink(
+                                number,
+                                "https://www.starwarsmalta.com/_files/ugd/6ced11_977eac0d23bd4b18afc806a9344247f7.pdf",
                                 "St.Julian's Baystreet",
                                 "St.Julian's Baystreet"
                             ))
-                            sendMessage(models.SendDocument(
+                            sendMessage(models.SendDocumentByLink(
                                 number,
-                                "948187283542199",
+                                "https://www.starwarsmalta.com/_files/ugd/6ced11_b19d615b6cde4bae96245d59f7511a8f.pdf",
                                 "Paola Mainstreet",
                                 "Paola Mainstreet"
                             ))
-                            sendMessage(models.SendDocument(
+                            sendMessage(models.SendDocumentByLink(
                                 number,
-                                "966304458342155",
+                                "https://www.starwarsmalta.com/_files/ugd/6ced11_5319695dacfa44769510833b459573a9.pdf",
                                 "Qormi PAVI",
                                 "Qormi PAVI"
-                            ))
-                            sendMessage(models.SendDocument(
-                                number,
-                                "730656119214857",
-                                "BATTLEMAXX",
-                                "BATTLEMAXX"
                             ))
                             break
                         // 1.2.1 All activities -> 1.2.1.1 Laser Tag | 1.2.1.2 Attractions

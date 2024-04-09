@@ -51,6 +51,21 @@ function SendDocument(number, id, caption, fileName) {
     return data
 }
 
+function SendDocumentByLink(number, link, caption, fileName) {
+    const data = JSON.stringify({
+        "messaging_product": "whatsapp",
+        "recipient_type": "individual",
+        "to": number,
+        "type": "document",
+        "document": {
+            "link": link,
+            "caption": caption,
+            "filename": fileName
+        }
+    })
+    return data
+}
+
 function SendPhoto(number, link) {
     const data = JSON.stringify({
         "messaging_product": "whatsapp",
@@ -321,6 +336,7 @@ module.exports = {
     SampleTemplate,
     SendPhoto,
     SendDocument,
+    SendDocumentByLink,
     operatorChat,
     booking,
     menu,
