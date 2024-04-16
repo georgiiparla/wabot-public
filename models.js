@@ -248,7 +248,7 @@ aboutUs.addButton("btn_menu", "📑 Back to Menu")
 
 
 // "btn_activities_info", "🎉 Our Services"
-const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore party packages, please, press the 🎁 *Party packages* button.\n\n*Attention!* If you wish to book something from the party packages, kindly wait for our call or call us back.\n\n")
+const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore party packages, please, press the 🎁 *Party packages* button.\n\n*Attention!* If you wish to book something from the party packages, kindly wait for our call or call us back.\n\nFor parties in MULTIMAXX & SQUARE in PAVI, you can fill out the form (https://www.starwarsmalta.com/multimaxx-pavi#comp-lrmdxedl1) and we will get back to you shortly!")
 ourServices.addButton("btn_all_activities", "🚀 Activities")
 ourServices.addButton("btn_packages", "🎁 Party packages")
 ourServices.addButton("btn_menu", "📑 Back to Menu")
@@ -256,7 +256,7 @@ ourServices.addButton("btn_menu", "📑 Back to Menu")
 
 
 // "btn_contacts_info", "☎️ Contact Us"
-const contactUs = new ButtonsMessage("🚀 MULTIMAXX, Level 4, Bay Street Complex, Saint Julian's, Malta (LASERMAXX indoor laser tag, Virtual Reality, Shooting Gallery, Arcade Machines and Private parties)\n⚔️ BATTLEMAXX (outdoor laser tag in Paola and Għaxaq)\n📞 +35699177777\n📧 info@starwarsmalta.com\n\n🌐 CYBERMAXX, Level 2, Main Street Complex, Paola, Malta (Indoor laser tag)\n📞 +35627627270\n📧 info@starwarsmalta.com\n\n🎉 MULTIMAXX & SQUARE, PAVI Shopping Complex, Ħal Qormi (Bumping cars, Virtual Reality, Shooting Gallery, Arcade Machines and Private parties)\n📞 +35679022471\n📧 marketing@absolutecatering.com.mt")
+const contactUs = new ButtonsMessage("🚀 MULTIMAXX, Level 4, Bay Street Complex, Saint Julian's, Malta (LASERMAXX indoor laser tag, Virtual Reality, Shooting Gallery, Arcade Machines and Private parties)\n⚔️ BATTLEMAXX (outdoor laser tag in Paola and Għaxaq)\n📞 +35699177777\n📧 info@starwarsmalta.com\n\n🌐 CYBERMAXX, Level 2, Main Street Complex, Paola, Malta (Indoor laser tag)\n📞 +35627627270\n📧 info@starwarsmalta.com\n\n🎉 MULTIMAXX & SQUARE, PAVI Shopping Complex, Ħal Qormi (Bumping cars, Virtual Reality, Shooting Gallery, Arcade Machines and Private parties)\n📞 +35699177777\n📧 info@starwarsmalta.com")
 contactUs.addButton("btn_menu", "📑 Back to Menu")
 
 
