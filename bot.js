@@ -81,7 +81,7 @@ function processMessage(jsonData) {
                             ))
                             sendMessage(models.SendDocumentByLink(
                                 number,
-                                "https://www.starwarsmalta.com/_files/ugd/6ced11_5319695dacfa44769510833b459573a9.pdf",
+                                "https://www.starwarsmalta.com/_files/ugd/6ced11_8667741bcad24d9a9636a84310490060.pdf",
                                 "Qormi PAVI",
                                 "Qormi PAVI"
                             ))
