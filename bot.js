@@ -64,27 +64,11 @@ function processMessage(jsonData) {
                             sendMessage(models.SendDocumentByLink(
                                 number,
                                 "https://www.starwarsmalta.com/_files/ugd/6ced11_c8e9bffa63764c409804608e038b5df7.pdf",
-                                "BATTLEMAXX",
-                                "BATTLEMAXX"
+                                "Offers and promotions for all locations",
+                                "Packages"
                             ))
-                            sendMessage(models.SendDocumentByLink(
-                                number,
-                                "https://www.starwarsmalta.com/_files/ugd/6ced11_977eac0d23bd4b18afc806a9344247f7.pdf",
-                                "St.Julian's Baystreet",
-                                "St.Julian's Baystreet"
-                            ))
-                            sendMessage(models.SendDocumentByLink(
-                                number,
-                                "https://www.starwarsmalta.com/_files/ugd/6ced11_b19d615b6cde4bae96245d59f7511a8f.pdf",
-                                "Paola Mainstreet",
-                                "Paola Mainstreet"
-                            ))
-                            sendMessage(models.SendDocumentByLink(
-                                number,
-                                "https://www.starwarsmalta.com/_files/ugd/6ced11_8667741bcad24d9a9636a84310490060.pdf",
-                                "Qormi PAVI",
-                                "Qormi PAVI"
-                            ))
+                            sendMessage(models.bmxOffer.to(number))
+                            sendMessage(models.paviOffer.to(number))
                             break
                         // 1.2.1 All activities -> 1.2.1.1 Laser Tag | 1.2.1.2 Attractions
                         case "btn_lasertag":

@@ -204,19 +204,19 @@ const attrPhotos = new URLMessage(
     "Photos from our venues",
     "Follow the link below"
 )
-attrPhotos.addURL("See pictures", "https://imgur.com/a/agNOxxv")
+attrPhotos.addURL("See pictures", "https://www.instagram.com/multimaxxmalta/")
 
 const bmxPrison = new URLMessage(
-    "Photos from our venues",
+    "Photos from BATTLEMAXX Lasertag",
     "Follow the link below"
 )
-bmxPrison.addURL("See pictures", "https://imgur.com/a/KfjxOBu")
+bmxPrison.addURL("See pictures", "https://www.facebook.com/battlemaxx/")
 
 const bmxGhaxaq = new URLMessage(
-    "Photos from our venues",
+    "Photos from BATTLEMAXX Lasertag",
     "Follow the link below"
 )
-bmxGhaxaq.addURL("See pictures", "https://imgur.com/a/JvwdHUa")
+bmxGhaxaq.addURL("See pictures", "https://www.facebook.com/battlemaxx/")
 
 const cmx = new URLMessage(
     "Photos from our venues",
@@ -228,7 +228,19 @@ const lmx = new URLMessage(
     "Photos from our venues",
     "Follow the link below"
 )
-lmx.addURL("See pictures", "https://imgur.com/a/k08zIv5")
+lmx.addURL("See pictures", "https://www.instagram.com/multimaxxmalta/")
+
+const bmxOffer = new URLMessage(
+    "*NEW* BATTLEMAXX special offer",
+    "Follow the link below"
+)
+bmxOffer.addURL("Use offer", "https://www.starwarsmalta.com/outdoorlasertagoffer")
+
+const paviOffer = new URLMessage(
+    "*NEW* PAVI special offer",
+    "Follow the link below"
+)
+bmxOffer.addURL("Use offer", "https://www.instagram.com/p/C8-FAu4OEOw/?utm_source=ig_web_copy_link")
 
 
 // btn_menu
@@ -248,9 +260,9 @@ aboutUs.addButton("btn_menu", "📑 Back to Menu")
 
 
 // "btn_activities_info", "🎉 Our Services"
-const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore party packages, please, press the 🎁 *Party packages* button.\n\n*Attention!* If you wish to book something from the party packages, kindly wait for our call or call us back.\n\nFor parties in MULTIMAXX & SQUARE in PAVI, you can fill out the form (https://www.starwarsmalta.com/multimaxx-pavi#comp-lrmdxedl1) and we will get back to you shortly!")
+const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore offers and promotions, please, press the 🎁 *Offers and promotions* button.\n\n*Attention!* If you wish to book something from the party packages, kindly wait for our call or call us back.\n\nFor parties in MULTIMAXX & SQUARE in PAVI, you can fill out the form (https://www.starwarsmalta.com/multimaxx-pavi#comp-lrmdxedl1) and we will get back to you shortly!")
 ourServices.addButton("btn_all_activities", "🚀 Activities")
-ourServices.addButton("btn_packages", "🎁 Party packages")
+ourServices.addButton("btn_packages", "🎁 Offers and promotions")
 ourServices.addButton("btn_menu", "📑 Back to Menu")
 
 
@@ -357,5 +369,7 @@ module.exports = {
     bmxPrison,
     bmxGhaxaq,
     cmx,
-    lmx
+    lmx,
+    bmxOffer,
+    paviOffer
 }
