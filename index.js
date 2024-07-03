@@ -157,6 +157,6 @@ app.use("", router)
 
 // Start the app
 app.listen(config.port, () => {
-    console.log('start with config', config);
+    console.log('App running on port ', config.port);
 });
 
