@@ -231,13 +231,13 @@ const lmx = new URLMessage(
 lmx.addURL("See pictures", "https://www.instagram.com/multimaxxmalta/")
 
 const bmxOffer = new URLMessage(
-    "*NEW* BATTLEMAXX special offer",
+    "NEW special offer in BATTLEMAXX",
     "Follow the link below"
 )
 bmxOffer.addURL("Use offer", "https://www.starwarsmalta.com/outdoorlasertagoffer")
 
 const paviOffer = new URLMessage(
-    "*NEW* PAVI special offer",
+    "NEW special offer in PAVI",
     "Follow the link below"
 )
 bmxOffer.addURL("Use offer", "https://www.instagram.com/p/C8-FAu4OEOw/?utm_source=ig_web_copy_link")
@@ -260,7 +260,7 @@ aboutUs.addButton("btn_menu", "📑 Back to Menu")
 
 
 // "btn_activities_info", "🎉 Our Services"
-const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore offers and promotions, please, press the 🎁 *Offers and promotions* button.\n\n*Attention!* If you wish to book something from the party packages, kindly wait for our call or call us back.\n\nFor parties in MULTIMAXX & SQUARE in PAVI, you can fill out the form (https://www.starwarsmalta.com/multimaxx-pavi#comp-lrmdxedl1) and we will get back to you shortly!")
+const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore offers and promotions, please, press the 🎁*Deals & Promotions* button.\n\n*Attention!* If you wish to book something from the party packages, kindly wait for our call or call us back, and we will book a party for you. You also can book it online by following this link: www.starwarsmalta.com/book-online")
 ourServices.addButton("btn_all_activities", "🚀Activities")
 ourServices.addButton("btn_packages", "🎁Deals & Promotions")
 ourServices.addButton("btn_menu", "📑 Back to Menu")
@@ -305,7 +305,7 @@ indoorLt.addButton("btn_lasertag", "⬅️ Back")
 
 
 // "btn_outdoor", "🌳 Outdoor"
-const outdoorLt = new ButtonsMessage("🌟 Discover the range of the outdoor Laser Tag we offer!\n\nWebsite about BATTLEMAXX only: www.battlemaxx.com")
+const outdoorLt = new ButtonsMessage("🌟 Discover the range of the outdoor Laser Tag we offer!")
 outdoorLt.addButton("btn_battlemaxx_kordin", "⚔️ BMX Royal Prison")
 outdoorLt.addButton("btn_battlemaxx_ghaxaq", "🏹 BMX Forest")
 outdoorLt.addButton("btn_lasertag", "⬅️ Back")
