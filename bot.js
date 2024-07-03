@@ -63,7 +63,7 @@ function processMessage(jsonData) {
                             // ))
                             sendMessage(models.SendDocumentByLink(
                                 number,
-                                "https://www.starwarsmalta.com/_files/ugd/6ced11_c8e9bffa63764c409804608e038b5df7.pdf",
+                                "https://www.starwarsmalta.com/_files/ugd/6ced11_0250e2c80c6f424ab8342a542698406a.pdf",
                                 "Deals & Promotions for all locations",
                                 "Packages"
                             ))
