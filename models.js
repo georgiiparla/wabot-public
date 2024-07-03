@@ -261,8 +261,8 @@ aboutUs.addButton("btn_menu", "📑 Back to Menu")
 
 // "btn_activities_info", "🎉 Our Services"
 const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore offers and promotions, please, press the 🎁 *Offers and promotions* button.\n\n*Attention!* If you wish to book something from the party packages, kindly wait for our call or call us back.\n\nFor parties in MULTIMAXX & SQUARE in PAVI, you can fill out the form (https://www.starwarsmalta.com/multimaxx-pavi#comp-lrmdxedl1) and we will get back to you shortly!")
-ourServices.addButton("btn_all_activities", "🚀 Activities")
-ourServices.addButton("btn_packages", "🎁 Offers and promotions")
+ourServices.addButton("btn_all_activities", "🚀Activities")
+ourServices.addButton("btn_packages", "🎁Deals & Promotions")
 ourServices.addButton("btn_menu", "📑 Back to Menu")
 
 
