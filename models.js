@@ -260,7 +260,7 @@ aboutUs.addButton("btn_menu", "📑 Back to Menu")
 
 
 // "btn_activities_info", "🎉 Our Services"
-const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore offers and promotions, please, press the 🎁 *Deals & Promotions* button.\n\n*Attention!*\nIf you wish to book something from 🎁 *Deals & Promotions*, kindly wait for our call or call us back, and we will book a party for you.\nYou also can book it online by following this link:\n\nwww.starwarsmalta.com/book-online")
+const ourServices = new ButtonsMessage("🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore offers and promotions, please, press the 🎁 *Deals & Promotions* button.\n\n*Attention!*\nIf you wish to book something from 🎁 *Deals & Promotions*, kindly wait for our call or call us back, and we will book a party for you.\nYou also can book it online by following this link:\n\nwww.starwarsmalta.com")
 ourServices.addButton("btn_all_activities", "🚀Activities")
 ourServices.addButton("btn_packages", "🎁Deals & Promotions")
 ourServices.addButton("btn_menu", "📑 Back to Menu")
