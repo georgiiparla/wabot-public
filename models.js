@@ -166,7 +166,7 @@ const booking = new URLMessage(
     "To book online",
     "Follow the link below"
 )
-booking.addURL("Book online", "https://www.starwarsmalta.com/book-online")
+booking.addURL("Book online", "https://www.starwarsmalta.com/")
 
 
 const websiteLink = new URLMessage(
@@ -231,13 +231,13 @@ const lmx = new URLMessage(
 lmx.addURL("See pictures", "https://www.instagram.com/multimaxxmalta/")
 
 const bmxOffer = new URLMessage(
-    "NEW special offer in BATTLEMAXX",
+    "Check all latest flash offers",
     "Follow the link below"
 )
-bmxOffer.addURL("Use offer", "https://www.starwarsmalta.com/outdoorlasertagoffer")
+bmxOffer.addURL("Use offer", "https://www.starwarsmalta.com/#comp-m0uz179u")
 
 const paviOffer = new URLMessage(
-    "NEW special offer in PAVI",
+    "Special offer in PAVI",
     "Follow the link below"
 )
 paviOffer.addURL("Use offer", "https://www.instagram.com/p/C8-FAu4OEOw/?utm_source=ig_web_copy_link")
