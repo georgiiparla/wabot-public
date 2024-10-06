@@ -37,30 +37,6 @@ function processMessage(jsonData) {
                             sendMessage(models.allActivities.to(number))
                             break
                         case "btn_packages":
-                            // sendMessage(models.SendDocument(
-                            //     number,
-                            //     "1083193819461481",
-                            //     "St.Julian's Baystreet",
-                            //     "St.Julian's Baystreet"
-                            // ))
-                            // sendMessage(models.SendDocument(
-                            //     number,
-                            //     "948187283542199",
-                            //     "Paola Mainstreet",
-                            //     "Paola Mainstreet"
-                            // ))
-                            // sendMessage(models.SendDocument(
-                            //     number,
-                            //     "966304458342155",
-                            //     "Qormi PAVI",
-                            //     "Qormi PAVI"
-                            // ))
-                            // sendMessage(models.SendDocument(
-                            //     number,
-                            //     "730656119214857",
-                            //     "BATTLEMAXX",
-                            //     "BATTLEMAXX"
-                            // ))
                             sendMessage(models.SendDocumentByLink(
                                 number,
                                 "https://nmkfmjmgapcozfyphyvm.supabase.co/storage/v1/object/public/partyDeals/Multimaxx%20Party%20Offers%202024.pdf",

@@ -10,8 +10,6 @@ const services = require("./services")
 const models = require("./models")
 const bot = require("./bot")
 
-// const access_token = "btu0lSe8fbdrHiMOza978fXK";
-
 const app = express();
 app.use(express.json({ limit: '10mb' }));
 app.use(useragent.express());
@@ -19,7 +17,7 @@ app.use(useragent.express());
 // Check a token
 router.get('/', async (req, res) => {
     try {
-        var accessToken = "btu0lSe8fbdrHiMOza978fXK";
+        var accessToken = "";
 
         // extract token testing + test token
         var token = req.query["hub.verify_token"];
