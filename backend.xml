@@ -1,0 +1,658 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.env.example
+.gitignore
+bot.js
+index.js
+messages.content.js
+models.js
+package.json
+services.js
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".env.example">
+PORT=3000
+UPLOAD_PATH=/tmp
+
+WHATSAPP_API_TOKEN="Your_WhatsApp_Business_Platform_API_Token"
+WEBHOOK_VERIFY_TOKEN="A_strong_and_random_string_for_verification"
+WHATSAPP_API_URL="https://graph.facebook.com/v18.0/172669552602437/messages"
+</file>
+
+<file path="messages.content.js">
+module.exports = {
+    // Each key (e.g., "menu", "aboutUs") is a unique message ID.
+    // --- Template Messages ---
+    missedCall: {
+        type: 'template',
+        name: 'say_hi',
+        language: 'en_US'
+    },
+
+    // --- URL Messages ---
+    booking: {
+        type: 'url',
+        header: "To book online",
+        body: "Follow the link below",
+        urlText: "Book online",
+        url: "https://www.starwarsmalta.com/"
+    },
+    websiteLink: {
+        type: 'url',
+        header: "MULTIMAXX Website",
+        body: "Follow the link below",
+        urlText: "Multimaxx",
+        url: "https://www.starwarsmalta.com/"
+    },
+    operatorChat: {
+        type: 'url',
+        header: "To chat with our operators",
+        body: "Press the button below.",
+        urlText: "Chat online",
+        url: "https://wa.me/message/BJBEEA44KRBSN1"
+    },
+    attrPhotos: {
+        type: 'url',
+        header: "Photos from our venues",
+        body: "Follow the link below",
+        urlText: "See pictures",
+        url: "https://www.instagram.com/multimaxxmalta/"
+    },
+    bmxPrisonPhotos: {
+        type: 'url',
+        header: "Photos from BATTLEMAXX Lasertag",
+        body: "Follow the link below",
+        urlText: "See pictures",
+        url: "https://www.facebook.com/battlemaxx/"
+    },
+    bmxGhaxaqPhotos: {
+        type: 'url',
+        header: "Photos from BATTLEMAXX Lasertag",
+        body: "Follow the link below",
+        urlText: "See pictures",
+        url: "https://www.facebook.com/battlemaxx/"
+    },
+    cmxPhotos: {
+        type: 'url',
+        header: "Photos from our venues",
+        body: "Follow the link below",
+        urlText: "See pictures",
+        url: "https://imgur.com/a/PWpoQqT"
+    },
+    lmxPhotos: {
+        type: 'url',
+        header: "Photos from our venues",
+        body: "Follow the link below",
+        urlText: "See pictures",
+        url: "https://www.instagram.com/multimaxxmalta/"
+    },
+    bmxOffer: {
+        type: 'url',
+        header: "Check all latest flash offers",
+        body: "Follow the link below",
+        urlText: "Use offer",
+        url: "https://www.starwarsmalta.com/#comp-m0uz179u"
+    },
+    paviOffer: {
+        type: 'url',
+        header: "Special offer in PAVI",
+        body: "Follow the link below",
+        urlText: "Use offer",
+        url: "https://www.instagram.com/p/C8-FAu4OEOw/"
+    },
+
+    // --- Text & Document Messages ---
+    socialsText: {
+        type: 'text',
+        body: "👥 *MULTIMAXX Facebook:*\nwww.facebook.com/multimaxxmalta\n\n📱 *MULTIMAXX Instagram:*\nwww.instagram.com/multimaxxmalta\n\n👥 *BATTLEMAXX Facebook:*\nwww.facebook.com/battlemaxx"
+    },
+    packagesDocument: {
+        type: 'document',
+        link: "https://nmkfmjmgapcozfyphyvm.supabase.co/storage/v1/object/public/partyDeals/Multimaxx%20Party%20Offers%202024.pdf",
+        caption: "Deals & Promotions for all locations",
+        fileName: "Packages"
+    },
+
+    // --- Button Messages (Main Menu Flow) ---
+    menu: {
+        type: 'buttons',
+        body: "*Hi! I'm a Multimaxx bot.* 📌 Here you can get more information about activities we provide, photos from our venues and details regarding party packages. Use the buttons below to navigate through the menu.",
+        buttons: [
+            { id: 'btn_company_info', title: '🌐 About Us' },
+            { id: 'btn_activities_info', title: '🎉 Our Services' },
+            { id: 'btn_contacts_info', title: '☎️ Chat with us' }
+        ]
+    },
+    aboutUs: {
+        type: 'buttons',
+        body: "Multimaxx is an entertainment company which is based on 🔫 Laser tag. Our locations feature urban battlefields, outdoor terrains for realistic experience (BATTLEMAXX), and indoor futuristic arenas (LASERMAXX, CYBERMAXX).\nBut that's not all. Explore 🎮 VIRTUALMAXX for a 360-degree virtual experience, 🚗💥 BUMPERMAXX to challenge your driving skills with electric bumper cars, and 🕹️ ARCADMAXX for classic arcade fun!\n🎁 Tailored packages await for birthdays, camps, youth groups, schools, corporate team-building, and private events. You can get more information via this online bot, or from our website and socials.",
+        buttons: [
+            { id: 'btn_websites', title: '🔗 Website' },
+            { id: 'btn_socials', title: '📌 Our Socials' },
+            { id: 'btn_menu', title: '📑 Back to Menu' }
+        ]
+    },
+    ourServices: {
+        type: 'buttons',
+        body: "🌟 To discover the range of activities we offer, press the 🚀 *Activities* button\n\nTo explore offers and promotions, please, press the 🎁 *Deals & Promotions* button.\n\n*Attention!*\nIf you wish to book something from 🎁 *Deals & Promotions*, kindly wait for our call or call us back, and we will book a party for you.\nYou also can book it online by following this link:\n\nwww.starwarsmalta.com",
+        buttons: [
+            { id: 'btn_all_activities', title: '🚀Activities' },
+            { id: 'btn_packages', title: '🎁Deals & Promotions' },
+            { id: 'btn_menu', title: '📑 Back to Menu' }
+        ]
+    },
+    contactUs: {
+        type: 'buttons',
+        body: "🚀 MULTIMAXX, Level 4, Bay Street Complex, Saint Julian's, Malta (LASERMAXX indoor laser tag, Virtual Reality, Shooting Gallery, Arcade Machines and Private parties)\n⚔️ BATTLEMAXX (outdoor laser tag in Paola and Għaxaq)\n📞 +35699177777\n📧 info@starwarsmalta.com\n\n🌐 CYBERMAXX, Level 2, Main Street Complex, Paola, Malta (Indoor laser tag)\n📞 +35627627270\n📧 info@starwarsmalta.com\n\n🎉 MULTIMAXX & SQUARE, PAVI Shopping Complex, Ħal Qormi (Bumping cars, Virtual Reality, Shooting Gallery, Arcade Machines and Private parties)\n📞 +35699177777\n📧 info@starwarsmalta.com",
+        buttons: [
+            { id: 'btn_menu', title: '📑 Back to Menu' }
+        ]
+    },
+    allActivities: {
+        type: 'buttons',
+        body: "🌟 To obtain the information about our laser tag and book a game, press the 🔫 *Laser Tag* button.\n\nTo get details about other activities such as Arcade Machines, Virtual Reality and Bumper Cars, kindly press the 🕹️ *Attractions* button.",
+        buttons: [
+            { id: 'btn_lasertag', title: '🔫 Laser Tag' },
+            { id: 'btn_attractions', title: '🕹️ Attractions' },
+            { id: 'btn_activities_info', title: '⬅️ Back' }
+        ]
+    },
+    laserTag: {
+        type: 'buttons',
+        body: "🤖 Choose the type!",
+        buttons: [
+            { id: 'btn_indoor', title: '🏢 Indoor' },
+            { id: 'btn_outdoor', title: '🌳 Outdoor' },
+            { id: 'btn_all_activities', title: '⬅️ Back' }
+        ]
+    },
+    attractions: {
+        type: 'buttons',
+        body: "🕶️ Virtual Reality - Our head-mounted displays allow you to sit down and feel like the protagonist in incredible cinematic adventures. Once you put on the Oculus Rift, you're transported into another dimension—a journey you shouldn't miss!\n**Available in Multimaxx Bay Street and Multimaxx PAVI*\n\n🎯 Shooting Gallery - Point at the ducks and pull the trigger! Our shooting gallery offers an array of different game modes to test your aiming skills. The rifle and its explosive sounds are as lifelike as it gets! Shoot your way up to that high score!\n**Available in Multimaxx Bay Street and Multimaxx PAVI*\n\n🚗💥 Bumper Cars - Spin, whirl, revolve, and rotate around MULTIMAXX's dazzling indoor Bumper Car Arena, colliding with opponents and asserting your dominance! These single-driven cars challenge your driving skills as you engage in bumper-to-bumper action against family and friends. Ready to accelerate to the max?\n**Available only in Multimaxx PAVI*",
+        buttons: [
+            { id: 'btn_pictures_attractions', title: '📷 See pictures' },
+            { id: 'btn_all_activities', title: '⬅️ Back' }
+        ]
+    },
+    indoorLt: {
+        type: 'buttons',
+        body: "🌟 Discover the range of the indoor Laser Tag we offer!",
+        buttons: [
+            { id: 'btn_lasermaxx', title: '🚀 LASERMAXX' },
+            { id: 'btn_cybermaxx', title: '🌐 CYBERMAXX' },
+            { id: 'btn_lasertag', title: '⬅️ Back' }
+        ]
+    },
+    outdoorLt: {
+        type: 'buttons',
+        body: "🌟 Discover the range of the outdoor Laser Tag we offer!",
+        buttons: [
+            { id: 'btn_battlemaxx_kordin', title: '⚔️ BMX Royal Prison' },
+            { id: 'btn_battlemaxx_ghaxaq', title: '🏹 BMX Forest' },
+            { id: 'btn_lasertag', title: '⬅️ Back' }
+        ]
+    },
+    cybermaxx: {
+        type: 'buttons',
+        body: "🚀 Dive into the excitement at our large and modern Laser Tag arena on Level 2, Main Street Shopping Complex, Paola!\n\n🎮 Kid's party packages and private events are ready for booking. 🎉 Don't miss out on the ultimate fun! 🔫💫",
+        buttons: [
+            { id: 'btn_price_book', title: '🔍👀 Book online' },
+            { id: 'btn_pictures_cybermaxx', title: '📷 See pictures' },
+            { id: 'btn_indoor', title: '⬅️ Back' }
+        ]
+    },
+    lasermaxx: {
+        type: 'buttons',
+        body: "🌟 Immerse yourself in the thrill of our indoor Laser Tag arena on Level 4, Bay Street Complex, St.Julian's, complete with dynamic lighting, swirling fog, and high-energy music to elevate the excitement 🚀🔦🎶\n\n🎉 Explore special packages tailored for birthday parties, corporate gatherings, and private events. Make your celebrations unforgettable with us! 🎂👔🎈",
+        buttons: [
+            { id: 'btn_price_book', title: '🔍👀 Book online' },
+            { id: 'btn_pictures_lasermaxx', title: '📷 See pictures' },
+            { id: 'btn_indoor', title: '⬅️ Back' }
+        ]
+    },
+    battlemaxxPrison: {
+        type: 'buttons',
+        body: "🎮 Embark on thrilling new game scenarios at the spectacular location of The Royal Navy Prison, constructed in 1866! 🏰⚔️\n\n🚪 Changing rooms, toilets, and a café are at your disposal for added convenience. Join the adventure and make unforgettable memories with us!",
+        buttons: [
+            { id: 'btn_price_book', title: '🔍👀 Book online' },
+            { id: 'btn_pictures_kordin', title: '📷 See pictures' },
+            { id: 'btn_outdoor', title: '⬅️ Back' }
+        ]
+    },
+    battlemaxxForest: {
+        type: 'buttons',
+        body: "🌳 Embark on exhilarating new game scenarios at the expansive green area nestled in the woods in the South of Malta! 🏞️🎮\n\nJoin the adventure surrounded by nature and create lasting memories in this picturesque setting! 🌲✨",
+        buttons: [
+            { id: 'btn_price_book', title: '🔍👀 Book online' },
+            { id: 'btn_pictures_ghaxaq', title: '📷 See pictures' },
+            { id: 'btn_outdoor', title: '⬅️ Back' }
+        ]
+    }
+};
+</file>
+
+<file path="package.json">
+{
+    "name": "wabot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^1.7.2",
+        "dotenv": "^16.4.5",
+        "express": "^4.18.2",
+        "express-fileupload": "^1.4.3",
+        "express-useragent": "^1.0.15",
+        "transliteration": "^2.3.5"
+    }
+}
+</file>
+
+<file path=".gitignore">
+node_modules
+ngrok.exe
+package-lock.json
+multimaxx_photos
+.env
+</file>
+
+<file path="services.js">
+const axios = require("axios");
+
+const API_TOKEN = process.env.WHATSAPP_API_TOKEN;
+const API_URL = process.env.WHATSAPP_API_URL;
+
+async function SendMessageWhatsApp(data) {
+    if (!API_TOKEN || !API_URL) {
+        console.error("WhatsApp API token or URL is not configured. Check your .env file.");
+        return;
+    }
+
+    try {
+        const response = await axios.post(API_URL, data, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${API_TOKEN}`
+            }
+        });
+        console.log("Message sent successfully:", response.data);
+    } catch (error) {
+        console.error("Error sending message:", error.response ? error.response.data : error.message);
+    }
+}
+
+module.exports = {
+    SendMessageWhatsApp
+};
+</file>
+
+<file path="index.js">
+require('dotenv').config();
+const express = require('express');
+const path = require('path');
+const fileUpload = require('express-fileupload');
+const fs = require('fs');
+const useragent = require('express-useragent');
+const { slugify } = require('transliteration');
+const services = require("./services");
+const models = require("./models");
+const bot = require("./bot");
+
+const app = express();
+const router = express.Router();
+
+app.use(express.json({ limit: '10mb' }));
+app.use(useragent.express());
+
+router.get('/', (req, res) => {
+    const verifyToken = process.env.WEBHOOK_VERIFY_TOKEN;
+    const token = req.query["hub.verify_token"];
+    const challenge = req.query["hub.challenge"];
+
+    if (challenge && token && token === verifyToken) {
+        res.send(challenge);
+    } else {
+        res.status(400).send('<h4 style="font-family: Helvetica, sans-serif;">GET request done! Possibly wrong token.</h4>');
+    }
+});
+
+router.post('/', async (req, res) => {
+    try {
+        console.log("Received webhook:", req.body);
+        await bot.processMessage(req.body);
+        res.status(200).send("EVENT_RECEIVED");
+    } catch (e) {
+        console.error("Error processing message:", e);
+        res.status(500).send("EVENT_RECEIVED_WITH_ERROR");
+    }
+});
+
+router.post('/calldata/:accountId/:mobile/:uuid', async (req, res) => {
+    try {
+        const { accountId, mobile, uuid } = req.params;
+        const calldata = req.body;
+        console.log('POST calldata', { accountId, mobile, uuid, body: calldata });
+
+        if (calldata.answered === false || calldata.answered === true) {
+            let number = calldata.number;
+            // Prepend country code if number is local format
+            if (number && number.length === 8) {
+                number = `+356${number}`;
+            }
+            await services.SendMessageWhatsApp(models.messages.missedCall.to(number));
+        }
+    } catch (e) {
+        console.error("Error in /calldata route:", e);
+    }
+    res.status(200).json({ status: 'OK' });
+});
+
+const fileUploadHandler = (subfolder) => async (req, res) => {
+    try {
+        const params = req.params;
+        console.log(`POST to /${subfolder}`, params);
+
+        if (!req.files || !req.files.file) {
+            console.log('No file uploaded.');
+            return res.status(400).json({ status: 'No file' });
+        }
+
+        const uploadDir = path.join(process.env.UPLOAD_PATH, subfolder);
+        await fs.promises.mkdir(uploadDir, { recursive: true });
+
+        const originalFilename = slugify(req.files.file.name, { lowercase: true, separator: '_' });
+        const newFilename = `${params.mobile}_${originalFilename}`;
+        const filePath = path.join(uploadDir, newFilename);
+
+        console.log(`Saving file to: ${filePath}`);
+        await req.files.file.mv(filePath);
+        console.log('File saved successfully.');
+
+    } catch (e) {
+        console.error(`Error in /${subfolder} route:`, e);
+    }
+    res.status(200).json({ status: 'OK' });
+};
+
+const fileUploadMiddleware = fileUpload({ limits: { fileSize: 50 * 1024 * 1024 } });
+
+router.post('/event/:accountId/:mobile/:uuid', (req, res) => {
+    console.log('POST event', { params: req.params, body: req.body });
+    res.status(200).json({ status: 'OK' });
+});
+
+router.post('/record/:accountId/:mobile/:uuid', fileUploadMiddleware, fileUploadHandler('records'));
+router.post('/log/:accountId/:mobile', fileUploadMiddleware, fileUploadHandler('logs'));
+
+app.use("/", router);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}`);
+});
+</file>
+
+<file path="bot.js">
+const services = require("./services");
+const { messages } = require("./models");
+
+const sendMessage = services.SendMessageWhatsApp;
+
+const buttonHandlers = {
+    "btn_menu": (number) => sendMessage(messages.menu.to(number)),
+    "btn_company_info": (number) => sendMessage(messages.aboutUs.to(number)),
+    "btn_websites": (number) => sendMessage(messages.websiteLink.to(number)),
+    "btn_socials": (number) => sendMessage(messages.socialsText.to(number)),
+    "btn_activities_info": (number) => sendMessage(messages.ourServices.to(number)),
+    "btn_all_activities": (number) => sendMessage(messages.allActivities.to(number)),
+    "btn_packages": async (number) => {
+        await sendMessage(messages.packagesDocument.to(number));
+        await sendMessage(messages.bmxOffer.to(number));
+        await sendMessage(messages.paviOffer.to(number));
+    },
+    "btn_lasertag": (number) => sendMessage(messages.laserTag.to(number)),
+    "btn_attractions": (number) => sendMessage(messages.attractions.to(number)),
+    "btn_pictures_attractions": (number) => sendMessage(messages.attrPhotos.to(number)),
+    "btn_indoor": (number) => sendMessage(messages.indoorLt.to(number)),
+    "btn_outdoor": (number) => sendMessage(messages.outdoorLt.to(number)),
+    "btn_cybermaxx": (number) => sendMessage(messages.cybermaxx.to(number)),
+    "btn_lasermaxx": (number) => sendMessage(messages.lasermaxx.to(number)),
+    "btn_pictures_cybermaxx": (number) => sendMessage(messages.cmxPhotos.to(number)),
+    "btn_pictures_lasermaxx": (number) => sendMessage(messages.lmxPhotos.to(number)),
+    "btn_battlemaxx_kordin": (number) => sendMessage(messages.battlemaxxPrison.to(number)),
+    "btn_battlemaxx_ghaxaq": (number) => sendMessage(messages.battlemaxxForest.to(number)),
+    "btn_pictures_kordin": (number) => sendMessage(messages.bmxPrisonPhotos.to(number)),
+    "btn_pictures_ghaxaq": (number) => sendMessage(messages.bmxGhaxaqPhotos.to(number)),
+    "btn_contacts_info": async (number) => {
+        await sendMessage(messages.operatorChat.to(number));
+        await sendMessage(messages.contactUs.to(number));
+    },
+    "btn_price_book": (number) => sendMessage(messages.booking.to(number)),
+};
+
+function getMessagePayload(jsonData) {
+    try {
+        return jsonData.entry[0].changes[0].value.messages[0];
+    } catch (e) {
+        return null;
+    }
+}
+
+async function processMessage(jsonData) {
+    const message = getMessagePayload(jsonData);
+    if (!message) {
+        console.log("Webhook received but no message found.");
+        return;
+    }
+
+    const number = message.from;
+
+    switch (message.type) {
+        case "interactive":
+            if (message.interactive.type === "button_reply") {
+                const buttonId = message.interactive.button_reply.id;
+                const handler = buttonHandlers[buttonId];
+                if (handler) {
+                    await handler(number);
+                } else {
+                    console.log(`No handler found for button ID: ${buttonId}`);
+                }
+            }
+            break;
+
+        case "text":
+            // For any text message, send the main menu
+            await sendMessage(messages.menu.to(number));
+            break;
+
+        case "button":
+            const buttonText = message.button.text;
+            if (buttonText === "About Us") await sendMessage(messages.aboutUs.to(number));
+            if (buttonText === "Our Services") await sendMessage(messages.ourServices.to(number));
+            if (buttonText === "Chat with us") {
+                await sendMessage(messages.operatorChat.to(number));
+                await sendMessage(messages.contactUs.to(number));
+            }
+            break;
+
+        default:
+            console.log(`Unknown message type received: ${message.type}`);
+    }
+}
+
+module.exports = {
+    processMessage
+};
+</file>
+
+<file path="models.js">
+const messageContent = require('./messages.content.js');
+
+// Base Message Builders
+// These are the tools that construct the final JSON for the WhatsApp API.
+
+function SampleText(number, text) {
+    return JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "text",
+        "text": { "preview_url": false, "body": text }
+    });
+}
+
+function SendDocumentByLink(number, link, caption, fileName) {
+    return JSON.stringify({
+        "messaging_product": "whatsapp",
+        "to": number,
+        "type": "document",
+        "document": { link, caption, "filename": fileName }
+    });
+}
+
+function TemplateMessage(number, name, language) {
+    return JSON.stringify({
+        "messaging_product": "whatsapp", "to": number, "type": "template",
+        "template": { "name": name, "language": { "code": language } }
+    });
+}
+
+class ButtonsMessage {
+    constructor(bodyText) {
+        this.data = {
+            "messaging_product": "whatsapp", "recipient_type": "individual", "to": "", "type": "interactive",
+            "interactive": { "type": "button", "body": { "text": bodyText }, "action": { "buttons": [] } }
+        };
+    }
+    addButton(id, title) {
+        this.data.interactive.action.buttons.push({ "type": "reply", "reply": { id, title } });
+    }
+    to(number) {
+        this.data.to = number;
+        return JSON.stringify(this.data);
+    }
+}
+
+class URLMessage {
+    constructor(headerText, bodyText) {
+        this.data = {
+            "messaging_product": "whatsapp", "recipient_type": "individual", "to": "", "type": "interactive",
+            "interactive": {
+                "type": "cta_url",
+                "header": { "type": "text", "text": headerText },
+                "body": { "text": bodyText },
+                "action": { "name": "cta_url", "parameters": { "display_text": "", "url": "" } }
+            }
+        };
+    }
+    addURL(displayText, url) {
+        this.data.interactive.action.parameters.display_text = displayText;
+        this.data.interactive.action.parameters.url = url;
+    }
+    to(number) {
+        this.data.to = number;
+        return JSON.stringify(this.data);
+    }
+}
+
+
+// The Message "Engine"
+// This function builds all messages from your content file.
+function buildMessages(content) {
+    const builtMessages = {};
+
+    for (const key in content) {
+        const item = content[key];
+        let messageInstance;
+
+        switch (item.type) {
+            case 'buttons':
+                messageInstance = new ButtonsMessage(item.body);
+                item.buttons.forEach(btn => messageInstance.addButton(btn.id, btn.title));
+                break;
+
+            case 'url':
+                messageInstance = new URLMessage(item.header, item.body);
+                messageInstance.addURL(item.urlText, item.url);
+                break;
+
+            case 'text':
+                messageInstance = {
+                    to: (number) => SampleText(number, item.body)
+                };
+                break;
+
+            case 'document':
+                messageInstance = {
+                    to: (number) => SendDocumentByLink(number, item.link, item.caption, item.fileName)
+                };
+                break;
+
+            case 'template':
+                messageInstance = {
+                    to: (number) => TemplateMessage(number, item.name, item.language)
+                };
+                break;
+        }
+        builtMessages[key] = messageInstance;
+    }
+    return builtMessages;
+}
+
+// Build all messages on startup and export them.
+const messages = buildMessages(messageContent);
+
+module.exports = {
+    messages
+};
+</file>
+
+</files>

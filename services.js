@@ -1,33 +1,27 @@
-const http = require("https")
+const axios = require("axios");
 
-function SendMessageWhatsApp(data) {
-    var TOKEN = ""
+const API_TOKEN = process.env.WHATSAPP_API_TOKEN;
+const API_URL = process.env.WHATSAPP_API_URL;
 
-    // options to send requests
-    const options = {
-        host: "graph.facebook.com",
-        path: "/v18.0/172669552602437/messages",
-        method: "POST",
-        body: data,
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: "Bearer " + TOKEN
-        }
+async function SendMessageWhatsApp(data) {
+    if (!API_TOKEN || !API_URL) {
+        console.error("WhatsApp API token or URL is not configured. Check your .env file.");
+        return;
     }
 
-    // Configure a request
-    const req = http.request(options, res => {
-        res.on("data", d => {
-            process.stdout.write(d)
-        })
-    })
-    req.on("error", error => {
-        console.error(error)
-    })
-    req.write(data)
-    req.end()
+    try {
+        const response = await axios.post(API_URL, data, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${API_TOKEN}`
+            }
+        });
+        console.log("Message sent successfully:", response.data);
+    } catch (error) {
+        console.error("Error sending message:", error.response ? error.response.data : error.message);
+    }
 }
 
 module.exports = {
     SendMessageWhatsApp
-}
+};

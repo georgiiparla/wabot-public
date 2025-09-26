@@ -1,160 +1,103 @@
+require('dotenv').config();
 const express = require('express');
-const router = express.Router();
-const config = require('./config/default');
 const path = require('path');
 const fileUpload = require('express-fileupload');
 const fs = require('fs');
 const useragent = require('express-useragent');
 const { slugify } = require('transliteration');
-const services = require("./services")
-const models = require("./models")
-const bot = require("./bot")
+const services = require("./services");
+const models = require("./models");
+const bot = require("./bot");
 
 const app = express();
+const router = express.Router();
+
 app.use(express.json({ limit: '10mb' }));
 app.use(useragent.express());
 
-// Check a token
-router.get('/', async (req, res) => {
-    try {
-        var accessToken = "";
+router.get('/', (req, res) => {
+    const verifyToken = process.env.WEBHOOK_VERIFY_TOKEN;
+    const token = req.query["hub.verify_token"];
+    const challenge = req.query["hub.challenge"];
 
-        // extract token testing + test token
-        var token = req.query["hub.verify_token"];
-        var challenge = req.query["hub.challenge"];
-        if (challenge != null && token != null && token == accessToken) {
-            res.send(challenge);
-        } else {
-            res.status(400).send('<h4 style="font-family: Helvetica, sans-serif;">GET request done! Possibly wrong token.</h4>');
-        }
-    } catch (e) {
-        console.error(e); // Log the error for debugging purposes
-        res.status(500).send("Internal Server Error");
+    if (challenge && token && token === verifyToken) {
+        res.send(challenge);
+    } else {
+        res.status(400).send('<h4 style="font-family: Helvetica, sans-serif;">GET request done! Possibly wrong token.</h4>');
     }
 });
 
-// Process incoming messages
 router.post('/', async (req, res) => {
     try {
-        // Unpacking the message
-        console.log(req.body)
-        bot.processMessage(req.body)
-        res.send("EVENT_RECEIVED no error")
+        console.log("Received webhook:", req.body);
+        await bot.processMessage(req.body);
+        res.status(200).send("EVENT_RECEIVED");
     } catch (e) {
-        console.log(e)
-        res.send("EVENT_RECEIVED with error")
+        console.error("Error processing message:", e);
+        res.status(500).send("EVENT_RECEIVED_WITH_ERROR");
     }
 });
 
-// POST when missed a call
 router.post('/calldata/:accountId/:mobile/:uuid', async (req, res) => {
     try {
         const { accountId, mobile, uuid } = req.params;
-        console.log('POST calldata', { accountId, mobile, uuid });
-        console.log('json:', req.body);
-
-        let calldata = JSON.parse(JSON.stringify(req.body));
-        console.log(calldata)
+        const calldata = req.body;
+        console.log('POST calldata', { accountId, mobile, uuid, body: calldata });
 
         if (calldata.answered === false || calldata.answered === true) {
-            if (calldata.number.length === 8) {
-                let number = "+356" + calldata.number
-                services.SendMessageWhatsApp(models.SampleTemplate(number))
-            } else {
-                let number = calldata.number
-                services.SendMessageWhatsApp(models.SampleTemplate(number))
+            let number = calldata.number;
+            // Prepend country code if number is local format
+            if (number && number.length === 8) {
+                number = `+356${number}`;
             }
+            await services.SendMessageWhatsApp(models.messages.missedCall.to(number));
         }
-
     } catch (e) {
-        console.log(e);
+        console.error("Error in /calldata route:", e);
     }
-    res.json({ status: 'OK' });
+    res.status(200).json({ status: 'OK' });
 });
 
-// POST requests for calls' recordings
-router.post('/event/:accountId/:mobile/:uuid', async (req, res) => {
+const fileUploadHandler = (subfolder) => async (req, res) => {
     try {
-        const { uuid, accountId, mobile } = req.params;
-        console.log('POST event', { accountId, mobile, uuid });
-        console.log('json:', req.body);
+        const params = req.params;
+        console.log(`POST to /${subfolder}`, params);
+
+        if (!req.files || !req.files.file) {
+            console.log('No file uploaded.');
+            return res.status(400).json({ status: 'No file' });
+        }
+
+        const uploadDir = path.join(process.env.UPLOAD_PATH, subfolder);
+        await fs.promises.mkdir(uploadDir, { recursive: true });
+
+        const originalFilename = slugify(req.files.file.name, { lowercase: true, separator: '_' });
+        const newFilename = `${params.mobile}_${originalFilename}`;
+        const filePath = path.join(uploadDir, newFilename);
+
+        console.log(`Saving file to: ${filePath}`);
+        await req.files.file.mv(filePath);
+        console.log('File saved successfully.');
+
     } catch (e) {
-        console.log('err', e);
+        console.error(`Error in /${subfolder} route:`, e);
     }
-    res.json({ status: 'OK' });
+    res.status(200).json({ status: 'OK' });
+};
+
+const fileUploadMiddleware = fileUpload({ limits: { fileSize: 50 * 1024 * 1024 } });
+
+router.post('/event/:accountId/:mobile/:uuid', (req, res) => {
+    console.log('POST event', { params: req.params, body: req.body });
+    res.status(200).json({ status: 'OK' });
 });
 
-router.post('/record/:accountId/:mobile/:uuid',
-    fileUpload({
-        limits: {
-            fileSize: 50 * 1024 * 1024,
-        },
-    }), async (req, res) => {
-        try {
-            const { accountId, mobile, uuid } = req.params;
-            console.log('POST record', { accountId, mobile, uuid });
+router.post('/record/:accountId/:mobile/:uuid', fileUploadMiddleware, fileUploadHandler('records'));
+router.post('/log/:accountId/:mobile', fileUploadMiddleware, fileUploadHandler('logs'));
 
-            const dir = path.join(config.uploadPath, '/records');
-            await fs.promises.mkdir(dir, { recursive: true });
-            console.log('records path', dir);
-            if (!req.files || !req.files.file) {
-                console.log('no file');
-                return res.json('no file');
-            }
-            const filename = slugify(
-                req.files.file.name, {
-                lowercase: true,
-                separator: '_',
-            });
+app.use("/", router);
 
-            const fname = path.join(dir, mobile + '_' + filename);
-            console.log('prepare copy record to file', fname);
-            await req.files.file.mv(fname);
-            console.log('done');
-        } catch (e) {
-            console.log('err:', e);
-        }
-        res.json({ status: 'OK' });
-    });
-
-router.post('/log/:accountId/:mobile',
-    fileUpload({
-        limits: {
-            fileSize: 50 * 1024 * 1024,
-        },
-    }), async (req, res) => {
-        try {
-            const { accountId, mobile } = req.params;
-            console.log('POST log:', { accountId, mobile });
-
-            const dir = path.join(config.uploadPath, '/logs');
-            await fs.promises.mkdir(dir, { recursive: true });
-            console.log('logs path', dir);
-            if (!req.files || !req.files.file) {
-                console.log('no file');
-                return res.json('no file');
-            }
-            const filename = slugify(
-                req.files.file.name, {
-                lowercase: true,
-                separator: '_',
-            });
-
-            const fname = path.join(dir, mobile + '_' + filename);
-            console.log('prepare copy log to file', fname);
-            await req.files.file.mv(fname);
-            console.log('done');
-        } catch (e) {
-            console.log('err:', e);
-        }
-        res.json({ status: 'OK' });
-    });
-
-// Apply routes
-app.use("", router)
-
-// Start the app
-app.listen(config.port, () => {
-    console.log('App running on port ', config.port);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`App running on port ${PORT}`);
 });
-
