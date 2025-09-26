@@ -1,8 +1,8 @@
 # 🤖 WhatsApp Bot
 
-A modern, content-driven WhatsApp chatbot designed for the Multimaxx entertainment company in Malta. This bot serves as an automated information hub, providing customers with details about services, promotions, locations, and contact information through an interactive, button-based menu.
+A modern, content-driven WhatsApp chatbot. This bot serves as an automated information hub, providing customers with details about services, promotions, locations, and contact information through an interactive, button-based menu.
 
-Originally a childhood project, it has been refactored to use modern Node.js practices, focusing on security, scalability, and ease of maintenance.
+Originally a school project, it has been refactored to use modern Node.js practices, focusing on security, scalability, and ease of maintenance.
 
 ## ✨ Key Features
 
