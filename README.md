@@ -1,3 +1,5 @@
-To enable calls, make use of something like [CallAgent](https://github.com/antirek/callagent)
+To enable calls, use something like [CallAgent](https://github.com/antirek/callagent)
 
-To enable SMS, make use of something like [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&pcampaignid=web_share)
+To enable SMS, use something like [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm&pcampaignid=web_share)
+
+Before launching the server, make sure you setup WhatsApp API (via Facebook for Developers)
