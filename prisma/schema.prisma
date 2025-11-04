@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Logs from previous refactor
+model WebhookLog {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  payload   Json
+  status    String
+}
+
+model CallEvent {
+  id          String    @id @default(uuid())
+  createdAt   DateTime  @default(now())
+  accountId   String
+  mobile      String
+  uuid        String
+  type        String
+  payload     Json?
+  filePath    String?
+  processedAt DateTime?
+}
+
+// --- NEW: Tables for DB-Driven Menus ---
+
+enum MessageType {
+  BUTTONS
+  URL
+  DOCUMENT_LINK
+  TEXT
+  IMAGE_LINK
+}
+
+// Stores a single message/menu screen
+model InteractiveMessage {
+  // Unique ID for this message, e.g., "main_menu", "about_us", "laser_tag"
+  id       String      @id
+  type     MessageType
+  bodyText String      @db.Text
+
+  // Optional: For URL type
+  headerText     String?
+  url            String?
+  urlDisplayText String?
+
+  // Optional: For DOCUMENT_LINK type
+  documentUrl      String?
+  documentCaption  String?
+  documentFilename String?
+
+  // Optional: For IMAGE_LINK type
+  imageUrl String?
+
+  // A message can have many buttons
+  buttons Button[]
+
+  // A message can be triggered by many buttons
+  triggeredBy Button[] @relation("triggeredMessage")
+}
+
+// Stores a single button
+model Button {
+  // Unique ID for this button, e.g., "btn_company_info", "btn_websites"
+  id    String @id
+  title String // The text on the button, e.g., "🌐 About Us"
+
+  // The message this button appears on
+  message   InteractiveMessage @relation(fields: [messageId], references: [id])
+  messageId String
+
+  // The message this button leads to
+  triggersMessage   InteractiveMessage @relation("triggeredMessage", fields: [triggersMessageId], references: [id])
+  triggersMessageId String
+}
